@@ -40,6 +40,7 @@ describe("string filters", () => {
     ])(
       "filters based on not matching a regular expression",
       ({ input, arg, expected }) => {
+        // @ts-ignore
         expect(input.filter(doesNotMatch(arg))).toEqual(expected);
       }
     );

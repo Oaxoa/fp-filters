@@ -10,4 +10,4 @@ export const isNegativeOrZero = not(isPositive);
 export const isZero = (arg: number) => arg === 0;
 export const isNotZero = not(isZero);
 export const isBetween = (min: number, max: number) => (arg: number) =>
-  arg > min && arg < max;
+  arg >= min && arg <= max;

@@ -1,11 +1,14 @@
 import {
+  isBetween,
   isInteger,
   isNegative,
   isNegativeOrZero,
+  isNotZero,
   isNumber,
   isPositive,
   isPositiveOrZero,
   isRound,
+  isZero,
 } from "./number";
 
 describe("number filters", () => {
@@ -74,11 +77,32 @@ describe("number filters", () => {
   });
 
   describe("isZero", () => {
-    it.each([{ input: someNumbers, expected: [0, -2, -2.9, -4.0] }])(
-      "returns negative numbers",
+    it.each([{ input: someNumbers, expected: [0] }])(
+      "returns zeros",
       ({ input, expected }) => {
-        expect(input.filter(isNegativeOrZero)).toEqual(expected);
+        expect(input.filter(isZero)).toEqual(expected);
       }
     );
+  });
+
+  describe("isNotZero", () => {
+    it.each([
+      { input: someNumbers, expected: [1, 1.1, 1.9, -2, -2.9, 3.0, -4.0] },
+    ])("returns non zeros", ({ input, expected }) => {
+      expect(input.filter(isNotZero)).toEqual(expected);
+    });
+  });
+
+  describe("isBetween", () => {
+    it.each([
+      {
+        input: someNumbers,
+        min: -2,
+        max: 3,
+        expected: [0, 1, 1.1, 1.9, -2, 3.0],
+      },
+    ])("returns numbers within a range", ({ input, min, max, expected }) => {
+      expect(input.filter(isBetween(min, max))).toEqual(expected);
+    });
   });
 });
