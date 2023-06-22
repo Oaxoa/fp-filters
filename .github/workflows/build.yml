@@ -1,5 +1,5 @@
-name: test1
-run-name: ${{ github.actor }} is doing things on Github Actions
+name: Build
+run-name: ${{ github.actor }} is building ${{github.action_repository}}
 on: [push]
 jobs:
   main:
