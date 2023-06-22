@@ -1,6 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "esModuleInterop": true
-  }
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "./lib",
+    "moduleResolution": "node"
+  },
+  "include": ["filters"],
+  "exclude": ["node_modules", "**/test/*"]
 }
