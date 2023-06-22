@@ -1,5 +1,6 @@
 <p><img src="./assets/logo.png" alt="" width="200" /></p>
 <p><img src="https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg" alt="" /></p>
+<p><img src="https://img.shields.io/github/actions/workflow/status/:user/:repo/:workflow" alt="" /></p>
 
 
 # fp-filters
