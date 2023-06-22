@@ -6,7 +6,7 @@ import { assignName } from "../utils";
 export const pattern =
   (...args) =>
   (item, index) => {
-    const mask = args[0] instanceof Array ? args[0] : [...args];
+    const mask = Array.isArray(args[0]) ? args[0] : [...args];
     return mask[index % mask.length];
   };
 
@@ -14,13 +14,13 @@ export const pattern =
  * Returns elements with an odd index
  */
 export const oddIndex = pattern(false, true);
-assignName(oddIndex, "odd");
+assignName(oddIndex, "oddIndex");
 
 /**
  * Returns elements with an even index
  */
 export const evenIndex = pattern(true, false);
-assignName(evenIndex, "even");
+assignName(evenIndex, "evenIndex");
 
 /**
  * Returns an element every N (offset possible)
@@ -30,4 +30,3 @@ export const everyN = (n: number, start: number = 0) => {
   p[start] = true;
   return pattern(...p);
 };
-assignName(everyN, "everyN");

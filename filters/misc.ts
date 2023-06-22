@@ -33,9 +33,9 @@ export const isNotInstanceOf = not(isInstanceOf);
 /**
  * Argument is of a specific type
  */
-export const isType = (type) => (arg) => typeof arg === type;
+export const isOfType = (type) => (arg) => typeof arg === type;
 
 /**
  * Argument is not of a specific type
  */
-export const isNotType = not(isType);
+export const isNotOfType = not(isOfType);

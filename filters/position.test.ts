@@ -10,9 +10,20 @@ describe("position", () => {
         p: [true, true, false],
         expected: [1, 2, 4, 5, 7, 8, 10],
       },
-    ])("returns elements based on their index", ({ input, p, expected }) => {
-      expect(input.filter(pattern(...p))).toEqual(expected);
-    });
+      {
+        input: someNumbers,
+        p: [true, true, false],
+        spreadP: true,
+        expected: [1, 2, 4, 5, 7, 8, 10],
+      },
+    ])(
+      "returns elements based on their index",
+      ({ input, p, spreadP, expected }) => {
+        expect(input.filter(spreadP ? pattern(...p) : pattern(p))).toEqual(
+          expected
+        );
+      }
+    );
   });
   describe("oddIndex", () => {
     it.each([{ input: someNumbers, expected: [2, 4, 6, 8, 10] }])(
