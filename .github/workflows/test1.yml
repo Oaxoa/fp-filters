@@ -1,0 +1,13 @@
+name: test1
+run-name: ${{ github.actor }} is doing things on Github Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.14.0'
+      - run: npm install -g bats
+      - run: bats -v
