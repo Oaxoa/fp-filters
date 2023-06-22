@@ -345,7 +345,7 @@ describe("type filters", () => {
 
   describe("isNil", () => {
     it.each([{ input: someElements, expected: [undefined, null] }])(
-      "returns nullable elements",
+      "returns nil (nullable) elements",
       ({ input, expected }) => {
         expect(input.filter(isNil)).toEqual(expected);
       }
@@ -371,7 +371,7 @@ describe("type filters", () => {
           NaN,
         ],
       },
-    ])("returns non-nullable elements", ({ input, expected }) => {
+    ])("returns non-nil (non-nullable) elements", ({ input, expected }) => {
       expect(input.filter(isNotNil)).toEqual(expected);
     });
   });
