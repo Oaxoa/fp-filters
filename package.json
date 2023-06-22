@@ -13,7 +13,8 @@
   },
   "scripts": {
     "lint": "eslint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll"
   },
   "jest": {
     "preset": "ts-jest",

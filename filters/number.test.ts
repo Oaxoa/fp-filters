@@ -1,19 +1,22 @@
 import {
+  gt,
+  gte,
   isBetween,
+  isEven,
   isInteger,
   isNegative,
   isNegativeOrZero,
   isNotZero,
-  isNumber,
   isPositive,
   isPositiveOrZero,
   isRound,
   isZero,
+  lt,
+  lte,
 } from "./number";
 
 describe("number filters", () => {
   const someNumbers = [0, 1, 1.1, 1.9, -2, -2.9, 3.0, -4.0];
-  const someElements = [[], {}, "hello", 1, -2.45, 10_000_001, 0xff0000];
 
   describe("isRound", () => {
     it.each([{ input: someNumbers, expected: [0, 1, -2, 3, -4] }])(
@@ -32,12 +35,58 @@ describe("number filters", () => {
     );
   });
 
-  describe("isNumber", () => {
-    it.each([
-      { input: someElements, expected: [1, -2.45, 10_000_001, 0xff0000] },
-    ])("returns numbers", ({ input, expected }) => {
-      expect(input.filter(isNumber)).toEqual(expected);
-    });
+  describe("gt", () => {
+    it.each([{ input: someNumbers, expected: [1.1, 1.9, 3] }])(
+      "returns numbers greater than the argument",
+      ({ input, expected }) => {
+        expect(input.filter(gt(1))).toEqual(expected);
+      }
+    );
+  });
+
+  describe("gte", () => {
+    it.each([{ input: someNumbers, expected: [1, 1.1, 1.9, 3] }])(
+      "returns numbers greater than or equal to the argument",
+      ({ input, expected }) => {
+        expect(input.filter(gte(1))).toEqual(expected);
+      }
+    );
+  });
+
+  describe("lt", () => {
+    it.each([{ input: someNumbers, expected: [0, -2, -2.9, -4] }])(
+      "returns numbers lower than the argument",
+      ({ input, expected }) => {
+        expect(input.filter(lt(1))).toEqual(expected);
+      }
+    );
+  });
+
+  describe("lte", () => {
+    it.each([{ input: someNumbers, expected: [0, 1, -2, -2.9, -4] }])(
+      "returns numbers lower than or equal to the argument",
+      ({ input, expected }) => {
+        expect(input.filter(lte(1))).toEqual(expected);
+      }
+    );
+  });
+
+  describe("isEven", () => {
+    it.each([{ input: someNumbers, expected: [0, -2, -4.0] }])(
+      "returns even numbers",
+      ({ input, expected }) => {
+        expect(input.filter(isEven)).toEqual(expected);
+      }
+    );
+  });
+
+  describe("isOdd", () => {
+    it.each([{ input: someNumbers, expected: [0, -2, -4.0] }])(
+      "returns even numbers",
+      ({ input, expected }) => {
+        expect(input.filter(isEven)).toEqual(expected);
+      }
+    );
   });
 
   describe("isPositive", () => {
