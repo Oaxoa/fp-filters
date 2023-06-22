@@ -3,19 +3,15 @@
 # fp-filters
 
 A collection of common filter functions that are written and meant to be used in a functional programming style.
-Tiny, zero-deopendencies, grouped by semantics, tree-shakeable and 100% tested by design.
+Tiny, zero-dependencies, grouped by semantics, tree-shakeable and 100% tested by design.
 
 ### Why
 
-See how fp-filters allows you to stop rewriting the same code over and over again and greatly improves readability:
+See how _fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability:
 
-```js
+## Examples
 
-// JS
-array.filter((element) => element !== 0);
-// fp-filters
-array.filter(isNotZero);
-```
+#### values and numbers examples:
 ```js
 // JS
 array.filter((element) => element === 5);
@@ -29,6 +25,12 @@ array.filter(is(userId));
 ```
 ```js
 // JS
+array.filter((element) => element !== 0);
+// fp-filters
+array.filter(isNotZero);
+```
+```js
+// JS
 array.filter((arg) => arg % 2 === 0);
 // fp-filters
 array.filter(isEven);
@@ -39,18 +41,14 @@ array.filter((arg) => arg >= 10 && arg <= 50);
 // fp-filters
 array.filter(clamp(10, 50));
 ```
+
+#### collections examples:
 ```js
+const selectedUsers=['John', 'Gina', 'Ed'];
 // JS
-array.filter((arg) => arg !== null && arg !== undefined);
+array.filter((arg) => people.selectedUsers(arg));
 // fp-filters
-array.filter(isNotNullable);
-```
-```js
-const people=['John', 'Gina', 'Ed'];
-// JS
-array.filter((arg) => someGroup.includes(arg));
-// fp-filters
-array.filter(isOneOf(someGroups));
+array.filter(isOneOf(selectedUsers));
 ```
 ```js
 // JS
@@ -76,6 +74,7 @@ array.filter((arg) => arg.length > 0);
 // fp-filters
 array.filter(isNotEmpty);
 ```
+#### position examples:
 ```js
 // JS
 array.filter((arg, index) => index % 3 === 0 || index % 2 === 2);
@@ -88,16 +87,52 @@ array.filter((arg, index) => index % 3 === 1);
 // fp-filters
 array.filter(everyN(3, 1));
 ```
+#### types examples:
+```js
+// JS
+array.filter((arg) => arg !== null && arg !== undefined);
+// fp-filters
+array.filter(isNotNullable);
+```
 ```js
 // JS
 array.filter((arg) => typeof arg === 'boolean');
 // fp-filters
 array.filter(isBoolean);
+// do not be tricked by `array.filter(Boolean);` is very different as 
+// it casts the content and then evaluate its truthyness
 ```
+
+## Negate or combine filters
+
+Most of the functions include aliases for their negated versions:
+```js
+array.filter(isNot(5))
+array.filter(isNotNullable)
+array.filter(isNotEmpty)
+array.filter(isNotInstanceOf(SomeClass));
+```
+
+but you can make your own.
+
+> _fp-filters_ offers very powerful functions to combine or negate filters
+
+
+#### Some examples:
+
+```js
+array.filter(not(is(5)))
+array.filter(and(isEven, not(isRound)));
+array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
+```
+
+
 
 ### Getting started
 
-How to install
+#### Installation
+
+fs-filters runs on Node.js and is available as a NPM package.
 
 ```bash
 yarn add fp-filters
@@ -107,5 +142,10 @@ or
 npm install --save fp-filters
 ```
 
-Where users can get help with your project
-Who maintains and contributes to the project
+## Contributions
+
+Looking forward for some help, **especially with the TypeScript annotations which is currently in draft**.
+
+[MIT](https://opensource.org/licenses/MIT)
+
+Copyright (c) 2023-present, Pierluigi Pesenti (Oaxoa)
