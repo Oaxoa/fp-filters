@@ -1,5 +1,5 @@
 import {
-  contains,
+  includes,
   doesNotMatch,
   endsWith,
   isEmptyString,
@@ -72,16 +72,19 @@ describe("string filters", () => {
     });
   });
 
-  describe("contains", () => {
+  describe("includes", () => {
     it.each([
       {
         input: someStrings,
         arg: "hell",
         expected: ["hello", "hellscape"],
       },
-    ])("filters based on the end of the string", ({ input, arg, expected }) => {
-      expect(input.filter(contains(arg))).toEqual(expected);
-    });
+    ])(
+      "returns strings that contain a specific substring",
+      ({ input, arg, expected }) => {
+        expect(input.filter(includes(arg))).toEqual(expected);
+      }
+    );
   });
 
   describe("isUpperCase", () => {

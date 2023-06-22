@@ -3,13 +3,14 @@ import { is } from "./misc";
 
 export const matches = (re: RegExp) => (arg: string) => arg.match(re);
 export const doesNotMatch = not(matches);
-export const startsWith = (prefix: string) => (arg: string) =>
-  arg.match(new RegExp(`^${prefix}`));
-export const endsWith = (suffix: string) => (arg: string) =>
-  arg.match(new RegExp(`${suffix}$`));
-export const contains = (q: string) => (arg: string) =>
-  arg.match(new RegExp(`${q}`));
-export const isUpperCase = (arg: string) => !arg.match(/[a-z]/);
-export const isLowerCase = (arg: string) => !arg.match(/[A-Z]/);
+
+const stringProxyMethod = (method) => (q: string) => (arg: string) =>
+  // @ts-ignore
+  String.prototype[method].call(arg, q);
+export const startsWith = stringProxyMethod("startsWith");
+export const endsWith = stringProxyMethod("endsWith");
+export const includes = stringProxyMethod("includes");
+export const isUpperCase = (arg: string) => arg.toUpperCase() === arg;
+export const isLowerCase = (arg: string) => arg.toLowerCase() === arg;
 export const isEmptyString = is("");
 export const isEmptyStringTrim = (arg: string) => arg.trim() === "";
