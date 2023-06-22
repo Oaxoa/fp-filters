@@ -88,11 +88,12 @@ array.filter((arg, index) => index % 3 === 1);
 array.filter(everyN(3, 1));
 ```
 #### types examples:
+
 ```js
 // JS
 array.filter((arg) => arg !== null && arg !== undefined);
 // fp-filters
-array.filter(isNotNullable);
+array.filter(isNotNil);
 ```
 ```js
 // JS
@@ -106,9 +107,10 @@ array.filter(isBoolean);
 ## Negate or combine filters
 
 Most of the functions include aliases for their negated versions:
+
 ```js
 array.filter(isNot(5))
-array.filter(isNotNullable)
+array.filter(isNotNil)
 array.filter(isNotEmpty)
 array.filter(isNotInstanceOf(SomeClass));
 ```
@@ -122,11 +124,9 @@ but you can make your own.
 
 ```js
 array.filter(not(is(5)))
-array.filter(and(isEven, not(isRound)));
+array.filter(and(gte(MIN_PRICE), not(isRound)));
 array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
 ```
-
-
 
 ### Getting started
 

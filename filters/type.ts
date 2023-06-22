@@ -16,8 +16,8 @@ export const isUndefined = isOfType("undefined");
 export const isNotUndefined = not(isUndefined);
 export const isNull = (arg) => arg === null;
 export const isNotNull = not(isNull);
-export const isNullable = or(isUndefined, isNull);
-export const isNotNullable = not(isNullable);
+export const isNil = or(isUndefined, isNull);
+export const isNotNil = not(isNil);
 export const isNotNaN = not(isNaN);
 export const isInstanceOf = (classReference) => (arg) =>
   arg instanceof classReference;

@@ -18,8 +18,8 @@ import {
   isNotUndefined,
   isNull,
   isNotNaN,
-  isNullable,
-  isNotNullable,
+  isNil,
+  isNotNil,
 } from "./type";
 
 describe("type filters", () => {
@@ -343,16 +343,16 @@ describe("type filters", () => {
     });
   });
 
-  describe("isNullable", () => {
+  describe("isNil", () => {
     it.each([{ input: someElements, expected: [undefined, null] }])(
       "returns nullable elements",
       ({ input, expected }) => {
-        expect(input.filter(isNullable)).toEqual(expected);
+        expect(input.filter(isNil)).toEqual(expected);
       }
     );
   });
 
-  describe("isNotNullable", () => {
+  describe("isNotNil", () => {
     it.each([
       {
         input: someElements,
@@ -372,7 +372,7 @@ describe("type filters", () => {
         ],
       },
     ])("returns non-nullable elements", ({ input, expected }) => {
-      expect(input.filter(isNotNullable)).toEqual(expected);
+      expect(input.filter(isNotNil)).toEqual(expected);
     });
   });
 
