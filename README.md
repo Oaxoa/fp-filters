@@ -48,7 +48,7 @@ array.filter(clamp(10, 50));
 ```js
 const selectedUsers=['John', 'Gina', 'Ed'];
 // JS
-array.filter((arg) => people.selectedUsers(arg));
+array.filter((arg) => selectedUsers.includes(arg));
 // fp-filters
 array.filter(isOneOf(selectedUsers));
 ```
