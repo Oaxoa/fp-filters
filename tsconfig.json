@@ -7,6 +7,6 @@
     "outDir": "./lib",
     "moduleResolution": "node"
   },
-  "include": ["filters"],
-  "exclude": ["node_modules", "**/test/*"]
+  "include": ["./filters"],
+  "exclude": ["node_modules"]
 }

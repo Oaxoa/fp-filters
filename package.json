@@ -1,8 +1,13 @@
 {
-  "name": "fs-filters",
+  "name": "fp-filters",
   "version": "0.1.1",
-  "private": true,
+  "description": "Commonly used filter functions that are tiny, tested and combinable",
+  "author": "Pierluigi Pesenti",
+  "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": "16.14.0"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.2",
     "eslint": "^8.43.0",
@@ -16,7 +21,7 @@
     "lint": "eslint",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "build": "tsc",
+    "build": "tsc --project tsconfig.build.json",
     "release": "np"
   },
   "jest": {
@@ -29,13 +34,13 @@
       "<rootDir>/node_modules/"
     ]
   },
-  "description": "Commonly used filter functions that are tiny, tested and combinable",
-  "author": "Pierluigi Pesenti",
-  "license": "MIT",
   "exports": {
-    "./filters/*.js": "./src/filters/*.js",
-    "./assets/*": "./assets/*"
+    ".": "./filters/*.js",
+    "./utils": "./utils.js"
   },
+  "files": [
+    "./lib", "CHANGELOG.md"
+  ],
   "np": {
     "contents": "./lib"
   }
