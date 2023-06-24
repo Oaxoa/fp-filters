@@ -5,11 +5,11 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - id: publish
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
+      - id: publish
       - run: yarn
       - run: npm run lint
       - run: npm run test
