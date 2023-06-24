@@ -5,8 +5,9 @@
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "./lib",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
-  "include": ["./filters"],
+  "include": ["./filters", "./package.json", "./LICENSE", "./README.md"],
   "exclude": ["node_modules"]
 }

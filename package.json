@@ -21,7 +21,9 @@
     "lint": "eslint",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "build": "tsc --project tsconfig.build.json",
+    "build": "yarn clean && tsc --project tsconfig.build.json && yarn copy-files",
+    "clean": "rm -rf ./lib",
+    "copy-files": "cp ./package.json ./README.md ./LICENSE ./lib/",
     "release": "np"
   },
   "jest": {
@@ -37,6 +39,7 @@
   "exports": {
     ".": "./filters/*.js",
     "./utils": "./utils.js"
+
   },
   "files": [
     "./lib",
