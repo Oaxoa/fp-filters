@@ -5,14 +5,22 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - id: publish
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
       - run: yarn
-      - run: npm run test
       - run: npm run lint
+      - run: npm run test
       - run: npm run build
       - uses: JS-DevTools/npm-publish@v2
         with:
           token: ${{ secrets.NPM_TOKEN }}
+
+      - if: ${{ steps.publish.outputs.dry-run }}
+        run: |
+          echo DRY RUN
+      - if: ${{ steps.publish.outputs.type }}
+        run: |
+          echo ${{name}} version changed: ${{version}} (was ${{old-version}})
