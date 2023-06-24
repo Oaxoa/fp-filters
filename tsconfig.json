@@ -8,6 +8,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "include": ["./filters", "./package.json", "./LICENSE", "./README.md"],
+  "include": ["./filters"],
   "exclude": ["node_modules"]
 }

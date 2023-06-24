@@ -21,10 +21,10 @@
     "lint": "eslint",
     "test": "jest --coverage",
     "test:watch": "jest --watchAll",
-    "build": "yarn clean && tsc --project tsconfig.build.json && yarn copy-files",
+    "build:only": "tsc --project tsconfig.build.json",
     "clean": "rm -rf ./lib",
     "copy-files": "cp ./package.json ./README.md ./LICENSE ./lib/",
-    "release": "np"
+    "build": "yarn clean && yarn build:only && yarn copy-files"
   },
   "jest": {
     "preset": "ts-jest",
