@@ -10,6 +10,6 @@ jobs:
         with:
           node-version: '16.14.0'
       - run: yarn
-      - run: npm run lint
-      - run: npm run test
-      - run: npm run build
+      - run: yarn run lint
+      - run: yarn run test
+      - run: yarn run build
