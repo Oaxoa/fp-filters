@@ -9,12 +9,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
-      - id: publish
       - run: yarn
       - run: npm run lint
       - run: npm run test
       - run: npm run build
       - uses: JS-DevTools/npm-publish@v2
+        id: publish
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
