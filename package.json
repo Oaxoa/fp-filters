@@ -37,10 +37,11 @@
     ]
   },
   "exports": {
-    ".": "./filters/*.js",
+    ".": "./lib/filters/*.js",
     "./utils": "./utils.js"
+
   },
   "files": [
-    "./lib/**/*.*"
+    "lib/**"
   ]
 }
