@@ -1,6 +1,6 @@
 {
   "name": "fp-filters",
-  "version": "0.1.6",
+  "version": "0.1.7-pre",
   "description": "Commonly used filter functions that are tiny, tested and combinable",
   "author": "Pierluigi Pesenti",
   "license": "MIT",
