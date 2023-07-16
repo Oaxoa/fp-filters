@@ -23,7 +23,7 @@
     "test:watch": "jest --watchAll",
     "build:only": "tsc --project tsconfig.build.json",
     "clean": "rm -rf ./lib",
-    "copy-files": "cp ./package.json ./README.md ./LICENSE ./lib/",
+    "copy-files": "cp ./{package.json,README.md,LICENSE} ./lib/",
     "build": "yarn clean && yarn build:only && yarn copy-files"
   },
   "jest": {
