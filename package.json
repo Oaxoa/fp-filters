@@ -1,13 +1,10 @@
 {
   "name": "fp-filters",
-  "version": "0.1.7-pre",
+  "version": "0.1.7-pre-2",
   "description": "Commonly used filter functions that are tiny, tested and combinable",
   "author": "Pierluigi Pesenti",
   "license": "MIT",
   "type": "module",
-  "engines": {
-    "node": ">=16.14.0"
-  },
   "devDependencies": {
     "@types/jest": "^29.5.2",
     "eslint": "^8.43.0",
