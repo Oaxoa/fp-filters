@@ -7,13 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
           registry-url: 'https://registry.npmjs.org'
       - name: Installing
         run: yarn install --frozen-lockfile
+      - name: Linting
+        run: yarn run lint
+      - name: Running tests
+        run: yarn run test
       - name: Building
         run: yarn run build
       - name: Publishing to npm registry
