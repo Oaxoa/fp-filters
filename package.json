@@ -26,19 +26,8 @@
     "pack": "yarn --cwd ./lib pack",
     "publish": "yarn publish"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.ts?$": "ts-jest"
-    },
-    "transformIgnorePatterns": [
-      "<rootDir>/node_modules/"
-    ]
-  },
   "exports": {
     "./*": "./filters/*.js",
     "./utils": "./utils.js"
-
   }
 }
