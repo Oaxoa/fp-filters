@@ -1,4 +1,4 @@
-import { not } from "../utils";
+import { not } from "../utils.js";
 
 /**
  * Returns all elements

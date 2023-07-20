@@ -134,7 +134,7 @@ array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
 
 #### Installation
 
-fs-filters runs on Node.js and is available as a NPM package.
+fp-filters runs on Node.js and is available as a NPM package.
 
 ```bash
 yarn add fp-filters

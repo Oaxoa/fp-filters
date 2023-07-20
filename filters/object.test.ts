@@ -1,4 +1,4 @@
-import { hasProp, hasProps, sameProp, sameProps } from "./object";
+import { hasProp, hasProps, sameProp, sameProps } from "./object.js";
 
 describe("object filters", () => {
   const someObjects = [

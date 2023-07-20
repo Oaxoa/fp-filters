@@ -20,7 +20,7 @@ import {
   isNotNaN,
   isNil,
   isNotNil,
-} from "./type";
+} from "./type.js";
 
 describe("type filters", () => {
   const someElements = [

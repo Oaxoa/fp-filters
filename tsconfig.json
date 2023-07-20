@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "CommonJS",
+    "target": "es6",
+    "module": "es6",
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "./lib",
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "moduleResolution": "node16"
   },
   "include": ["./filters"],
   "exclude": ["node_modules"]

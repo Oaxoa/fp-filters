@@ -1,4 +1,4 @@
-import { all, is, isNot, none } from "./misc";
+import { all, is, isNot, none } from "./misc.js";
 
 describe("misc filters", () => {
   const someElements = [1, 2, 3, 2, "hello"];

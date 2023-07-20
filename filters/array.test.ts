@@ -1,4 +1,4 @@
-import { isOneOf } from "./array";
+import { isOneOf } from "./array.js";
 
 describe("array filters", () => {
   describe("isOneOf", () => {

@@ -13,7 +13,7 @@ import {
   isZero,
   lt,
   lte,
-} from "./number";
+} from "./number.js";
 
 describe("number filters", () => {
   const someNumbers = [0, 1, 1.1, 1.9, -2, -2.9, 3.0, -4.0];

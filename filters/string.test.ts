@@ -8,7 +8,7 @@ import {
   isUpperCase,
   matches,
   startsWith,
-} from "./string";
+} from "./string.js";
 
 describe("string filters", () => {
   const someStrings = ["hello", "hallo", "hellscape"];

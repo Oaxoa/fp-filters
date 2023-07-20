@@ -1,4 +1,4 @@
-import { evenIndex, everyN, oddIndex, pattern } from "./position";
+import { evenIndex, everyN, oddIndex, pattern } from "./position.js";
 
 describe("position", () => {
   const someNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

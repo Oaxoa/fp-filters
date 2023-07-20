@@ -12,8 +12,14 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn install --frozen-lockfile
-      - run: yarn run build
-      - run: yarn publish
+      - name: Installing
+        run: yarn install --frozen-lockfile
+      - name: Building
+        run: yarn run build
+      - name: Packing lib folder
+        working-directory: ./lib
+        run: yarn --cwd ./lib pack
+      - name: Publishing to npm registry
+        run: yarn --cwd ./lib publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

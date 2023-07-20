@@ -1,4 +1,4 @@
-import { assignName, not } from "../utils";
+import { assignName, not } from "../utils.js";
 
 /**
  * Argument is unique within the collection

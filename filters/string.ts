@@ -1,5 +1,5 @@
-import { not } from "../utils";
-import { is } from "./misc";
+import { not } from "../utils.js";
+import { is } from "./misc.js";
 
 export const matches = (re: RegExp) => (arg: string) => arg.match(re);
 export const doesNotMatch = not(matches);

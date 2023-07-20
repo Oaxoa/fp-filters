@@ -9,7 +9,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.14.0'
-      - run: yarn
-      - run: yarn run lint
-      - run: yarn run test
-      - run: yarn run build
+      - name: Installing
+        run: yarn
+      - name: Linting
+        run: yarn run lint
+      - name: Running tests
+        run: yarn run test
+      - name: Building
+        run: yarn run build

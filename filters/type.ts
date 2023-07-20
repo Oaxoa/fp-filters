@@ -1,4 +1,4 @@
-import { not, or } from "../utils";
+import { not, or } from "../utils.js";
 
 export const isOfType = (type) => (arg) => typeof arg === type;
 export const isNotOfType = not(isOfType);
