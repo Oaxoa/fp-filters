@@ -10,14 +10,13 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '16.14.0'
           registry-url: 'https://registry.npmjs.org'
       - name: Installing
         run: yarn install --frozen-lockfile
       - name: Building
         run: yarn run build
       - name: Packing lib folder
-        working-directory: ./lib
         run: yarn --cwd ./lib pack
       - name: Publishing to npm registry
         run: yarn --cwd ./lib publish
