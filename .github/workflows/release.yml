@@ -16,8 +16,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Building
         run: yarn run build
-      - name: Packing lib folder
-        run: yarn --cwd ./lib pack
       - name: Publishing to npm registry
         run: yarn --cwd ./lib publish
         env:
