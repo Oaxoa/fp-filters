@@ -1,6 +1,6 @@
 {
   "name": "fp-filters",
-  "version": "0.1.0-alpha-4",
+  "version": "0.1.0",
   "description": "Commonly used filter functions that are tiny, tested and combinable",
   "author": "Pierluigi Pesenti",
   "license": "MIT",
@@ -23,8 +23,7 @@
     "clean": "rm -rf ./lib",
     "copy-files": "cp ./package.json ./README.md ./LICENSE ./lib/",
     "build": "yarn clean && yarn build:ts && yarn copy-files",
-    "pack": "yarn --cwd ./lib pack",
-    "publish": "yarn publish"
+    "pack": "yarn --cwd ./lib pack"
   },
   "exports": {
     "./*": "./filters/*.js",
