@@ -8,6 +8,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       # Checkout project repository
       - name: Checkout
@@ -76,8 +78,6 @@ jobs:
 
       # Push repository changes
       - name: Push changes to repository
-        permissions:
-          contents: write
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
