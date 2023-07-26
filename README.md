@@ -146,7 +146,7 @@ npm install --save fp-filters
 
 ## Contributions
 
-Looking forward for some help, **especially with the TypeScript annotations which is currently in draft**.
+Looking forward for some help, **especially with the TypeScript annotations which is currently just a draft**.
 
 [MIT](https://opensource.org/licenses/MIT)
 
