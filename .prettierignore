@@ -1,0 +1,7 @@
+# Ignore artifacts:
+lib
+coverage
+.github
+
+# Ignore all HTML files:
+**/*.yml

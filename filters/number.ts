@@ -1,4 +1,4 @@
-import { and, not } from "../utils.js";
+import {and, not} from "../utils.js";
 
 export const isRound = (arg: number) => Math.round(arg) === arg;
 export const isInteger = (arg: number) => parseInt(String(arg), 10) === arg;

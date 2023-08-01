@@ -1,4 +1,4 @@
-import { not } from "../utils.js";
+import {not} from "../utils.js";
 
 /**
  * Returns all elements
@@ -6,15 +6,15 @@ import { not } from "../utils.js";
 export const all = () => true;
 
 /**
- * Returns no element
+ * Returns no elements
  */
 export const none = () => false;
 
 /**
- * Exact comparison
+ * Exact comparison (===)
  */
 export const is =
-  <T>(comparison: T) =>
-  (arg: T): arg is T =>
-    comparison === arg;
+    <T>(comparison: T) =>
+        (arg: T) =>
+            comparison === arg;
 export const isNot = not(is);

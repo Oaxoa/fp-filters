@@ -5,8 +5,19 @@
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "./lib",
-    "moduleResolution": "node16"
+    "moduleResolution": "node16",
+    "strict": false,
+    "noImplicitAny": true
   },
-  "include": ["./filters"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./filters",
+    "./utils.ts",
+    "./utils.test.ts",
+    "./jest.config.js",
+    "./prettier.config.js",
+    "./.eslintrc.cjs"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

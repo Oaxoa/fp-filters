@@ -1,7 +1,6 @@
 <p><img src="./assets/logo.png" alt="" width="200" /></p>
 <p><img src="https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg" alt="" /></p>
 
-
 # fp-filters
 
 A collection of common filter functions that are written and meant to be used in a functional programming style.
@@ -14,6 +13,7 @@ See how _fp-filters_ allows you to stop rewriting the same code over and over ag
 ## Examples
 
 #### values and numbers examples:
+
 ```js
 // JS
 array.filter((element) => element === 5);
@@ -25,18 +25,21 @@ array.filter((id) => id === userId);
 // fp-filters
 array.filter(is(userId));
 ```
+
 ```js
 // JS
 array.filter((element) => element !== 0);
 // fp-filters
 array.filter(isNotZero);
 ```
+
 ```js
 // JS
 array.filter((arg) => arg % 2 === 0);
 // fp-filters
 array.filter(isEven);
 ```
+
 ```js
 // JS
 array.filter((arg) => arg >= 10 && arg <= 50);
@@ -45,50 +48,59 @@ array.filter(clamp(10, 50));
 ```
 
 #### collections examples:
+
 ```js
-const selectedUsers=['John', 'Gina', 'Ed'];
+const selectedUsers = ['John', 'Gina', 'Ed'];
 // JS
 array.filter((arg) => selectedUsers.includes(arg));
 // fp-filters
 array.filter(isOneOf(selectedUsers));
 ```
+
 ```js
 // JS
-array.filter((obj) => obj.valid!==undefined && obj.id !== undefined && obj.plu !==undefined);
+array.filter((obj) => obj.valid !== undefined && obj.id !== undefined && obj.plu !== undefined);
 // fp-filters
 array.filter(hasProps(['valid', 'id', 'plu']));
 ```
+
 ```js
 // JS
 array.filter((obj) => obj.country === countryId && obj.plu === plu);
 // fp-filters
 array.filter(hasProps(['country', 'plu'], [countryId, plu]));
 ```
+
 ```js
 // JS
 array.filter((obj) => obj.id === someOtherObj.id && obj.brand === someOtherObj.brand);
 // fp-filters
 array.filter(sameProps(someOtherObj, ['id', 'brand']));
 ```
+
 ```js
 // JS
 array.filter((arg) => arg.length > 0);
 // fp-filters
 array.filter(isNotEmpty);
 ```
+
 #### position examples:
+
 ```js
 // JS
 array.filter((arg, index) => index % 3 === 0 || index % 2 === 2);
 // fp-filters
 array.filter(pattern(false, true, true));
 ```
+
 ```js
 // JS
 array.filter((arg, index) => index % 3 === 1);
 // fp-filters
 array.filter(everyN(3, 1));
 ```
+
 #### types examples:
 
 ```js
@@ -97,6 +109,7 @@ array.filter((arg) => arg !== null && arg !== undefined);
 // fp-filters
 array.filter(isNotNil);
 ```
+
 ```js
 // JS
 array.filter((arg) => typeof arg === 'boolean');
@@ -121,7 +134,6 @@ but you can make your own.
 
 > _fp-filters_ offers very powerful functions to combine or negate filters
 
-
 #### Some examples:
 
 ```js
@@ -137,11 +149,13 @@ array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
 fp-filters runs on Node.js and is available as a NPM package.
 
 ```bash
-yarn add fp-filters
-```
-or
-```bash
 npm install --save fp-filters
+```
+
+or
+
+```bash
+yarn add fp-filters
 ```
 
 ## Contributions

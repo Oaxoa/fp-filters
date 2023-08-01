@@ -1,15 +1,17 @@
-import { not } from "../utils.js";
-import { is } from "./misc.js";
+import {not} from "../utils.js";
+import {is} from "./misc.js";
 
 export const matches = (re: RegExp) => (arg: string) => arg.match(re);
 export const doesNotMatch = not(matches);
-
-const stringProxyMethod = (method) => (q: string) => (arg: string) =>
-  // @ts-ignore
-  String.prototype[method].call(arg, q);
-export const startsWith = stringProxyMethod("startsWith");
-export const endsWith = stringProxyMethod("endsWith");
-export const includes = stringProxyMethod("includes");
+ 
+const stringMethodProxy =
+    (method: "startsWith" | "endsWith" | "includes") =>
+        (q: string) =>
+            (arg: string) =>
+                String.prototype[method].call(arg, q);
+export const startsWith = stringMethodProxy("startsWith");
+export const endsWith = stringMethodProxy("endsWith");
+export const includes = stringMethodProxy("includes");
 export const isUpperCase = (arg: string) => arg.toUpperCase() === arg;
 export const isLowerCase = (arg: string) => arg.toLowerCase() === arg;
 export const isEmptyString = is("");

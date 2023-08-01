@@ -4,8 +4,8 @@ import { assignName } from "../utils.js";
  * Allows to specify a pattern that is repeated. The elements are returned based on their index matching the pattern
  */
 export const pattern =
-  (...args) =>
-  (item, index) => {
+  (...args: unknown[]) =>
+  (item: unknown, index: number) => {
     const mask = Array.isArray(args[0]) ? args[0] : [...args];
     return mask[index % mask.length];
   };
