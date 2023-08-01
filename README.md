@@ -1,6 +1,8 @@
 <p><img src="./assets/logo.png" alt="" width="200" /></p>
 <p><img src="https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg" alt="" /></p>
 
+https://github.com/Oaxoa/fp-filters
+
 # fp-filters
 
 A collection of common filter functions that are written and meant to be used in a functional programming style.
