@@ -5,8 +5,17 @@ https://github.com/Oaxoa/fp-filters
 
 # fp-filters
 
-A collection of common filter functions that are written and meant to be used in a functional programming style.
-Tiny, zero-dependencies, grouped by semantics, tree-shakeable and 100% tested by design.
+A collection of common filter functions that are written (and can be used) in a functional programming style.
+
+fp-filters functions are:
+
+1. pure
+2. tiny
+2. composable
+3. zero-dependencies
+4. grouped by semantics
+5. tree-shakeable
+6. 100% tested by design
 
 ### Why
 
@@ -17,11 +26,6 @@ See how _fp-filters_ allows you to stop rewriting the same code over and over ag
 #### values and numbers examples:
 
 ```js
-// JS
-array.filter((element) => element === 5);
-// fp-filters
-array.filter(is(5));
-
 // JS
 array.filter((id) => id === userId);
 // fp-filters
@@ -87,22 +91,6 @@ array.filter((arg) => arg.length > 0);
 array.filter(isNotEmpty);
 ```
 
-#### position examples:
-
-```js
-// JS
-array.filter((arg, index) => index % 3 === 0 || index % 2 === 2);
-// fp-filters
-array.filter(pattern(false, true, true));
-```
-
-```js
-// JS
-array.filter((arg, index) => index % 3 === 1);
-// fp-filters
-array.filter(everyN(3, 1));
-```
-
 #### types examples:
 
 ```js
@@ -121,6 +109,22 @@ array.filter(isBoolean);
 // it casts the content and then evaluate its truthyness
 ```
 
+#### position examples:
+
+```js
+// JS
+array.filter((arg, index) => index % 3 === 0 || index % 2 === 2);
+// fp-filters
+array.filter(pattern(false, true, true));
+```
+
+```js
+// JS
+array.filter((arg, index) => index % 3 === 1);
+// fp-filters
+array.filter(everyN(3, 1));
+```
+
 ## Negate or combine filters
 
 Most of the functions include aliases for their negated versions:
@@ -132,14 +136,14 @@ array.filter(isNotEmpty)
 array.filter(isNotInstanceOf(SomeClass));
 ```
 
-but you can make your own.
+but **you can make your own**.
 
 > _fp-filters_ offers very powerful functions to combine or negate filters
 
 #### Some examples:
 
 ```js
-array.filter(not(is(5)))
+array.filter(not(is(5)));
 array.filter(and(gte(MIN_PRICE), not(isRound)));
 array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
 ```
