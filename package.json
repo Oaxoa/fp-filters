@@ -5,13 +5,17 @@
   "author": "Pierluigi Pesenti",
   "license": "MIT",
   "keywords": [
-    "functional-programming",
-    "functional programming",
-    "functional programming filters",
     "filter",
-    "fp",
     "filters",
-    "filtering"
+    "filtering",
+    "common filters",
+    "common filter functions",
+    "curated common filter functions",
+    "fp",
+    "fp filters",
+    "functional programming filters",
+    "functional-programming",
+    "functional programming"
   ],
   "type": "module",
   "repository": "https://github.com/Oaxoa/fp-filters",
