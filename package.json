@@ -4,6 +4,15 @@
   "description": "Commonly used filter functions that are tiny, tested and combinable",
   "author": "Pierluigi Pesenti",
   "license": "MIT",
+  "keywords": [
+    "functional-programming",
+    "functional programming",
+    "functional programming filters",
+    "filter",
+    "fp",
+    "filters",
+    "filtering"
+  ],
   "type": "module",
   "repository": "https://github.com/Oaxoa/fp-filters",
   "devDependencies": {
