@@ -18,10 +18,11 @@ module.exports = {
     parserOptions: {
         project: './tsconfig.json',
     },
-    ignorePatterns: ["coverage", "lib", "assets", ".github", "node_modules"],
+    ignorePatterns: ["coverage", "dist", "assets", ".github", "node_modules"],
     rules: {
         "import/no-unresolved": "off",
         "@typescript-eslint/ban-types": "off",
-        "@typescript-eslint/ban-ts-comment": "off"
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-explicit-any": "off"
     },
 };
