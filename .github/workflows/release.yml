@@ -28,6 +28,9 @@ jobs:
       - name: Run tests
         run: yarn run test
 
+      - name: Building
+        run: yarn run build
+
       # Configure Git
       - name: Git configuration
         run: |

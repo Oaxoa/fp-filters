@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
+    "target": "ESNext",
+    "module": "ESNext",
     "esModuleInterop": true,
     "declaration": true,
-    "outDir": "./lib",
-    "moduleResolution": "node16",
+    "outDir": "./dist/esm",
+    "moduleResolution": "Node",
     "strict": false,
     "noImplicitAny": true
   },
@@ -15,7 +15,7 @@
     "./utils.test.ts",
     "./jest.config.js",
     "./prettier.config.js",
-    "./.eslintrc.cjs"
+    "./eslint.config.js"
   ],
   "exclude": [
     "node_modules"
