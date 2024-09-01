@@ -1,13 +1,10 @@
-import { not, TBooleanPredicate } from 'fp-booleans';
+import { not, TPredicate } from 'fp-booleans';
 
 /**
  * arg has the specified prop
  */
-export function hasProp(
-	propertyName: string,
-	f: TBooleanPredicate<unknown[]>
-): TBooleanPredicate<[object]>;
-export function hasProp(propertyName: string, value?: unknown): TBooleanPredicate<[object]>;
+export function hasProp(propertyName: string, f: TPredicate<unknown[]>): TPredicate<[object]>;
+export function hasProp(propertyName: string, value?: unknown): TPredicate<[object]>;
 export function hasProp(propertyName: string, valueOrFilter?: unknown) {
 	return (arg: object) => {
 		const property: unknown = arg[propertyName as keyof typeof arg];
@@ -31,9 +28,7 @@ export const hasNotProp = not(hasProp);
  * arg has all the specified props
  */
 export const hasProps = (propertyNames: string[], values?: unknown[]) => (arg: object) => {
-	return propertyNames.every((propertyName, index) =>
-		hasProp(propertyName, values?.[index])(arg)
-	);
+	return propertyNames.every((propertyName, index) => hasProp(propertyName, values?.[index])(arg));
 };
 
 /**
@@ -45,8 +40,7 @@ export const hasNotProps = not(hasProps);
  * arg has the same value of the comparison object for the specified prop
  */
 export const hasSameProp = (comparisonObject: object, propertyName: string) => (arg: object) =>
-	arg[propertyName as keyof typeof arg] ===
-	comparisonObject[propertyName as keyof typeof comparisonObject];
+	arg[propertyName as keyof typeof arg] === comparisonObject[propertyName as keyof typeof comparisonObject];
 /**
  * arg does not have the same value of the comparison object for the specified prop
  */
@@ -55,11 +49,8 @@ export const hasNotSameProp = not(hasSameProp);
 /**
  * arg has the same value of the comparison object for all the specified props
  */
-export const hasSameProps =
-	(comparisonObject: object, propertyNames: string[]) => (arg: object) =>
-		propertyNames.every((propertyName) =>
-			hasSameProp(comparisonObject, propertyName)(arg)
-		);
+export const hasSameProps = (comparisonObject: object, propertyNames: string[]) => (arg: object) =>
+	propertyNames.every((propertyName) => hasSameProp(comparisonObject, propertyName)(arg));
 
 /**
  * arg does not have the same value of the comparison object for all the specified props
