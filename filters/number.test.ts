@@ -9,6 +9,10 @@ import {
 	isRound,
 	isZero,
 	isLowerThan,
+	isMultipleOf,
+	isBetweenExcludingBoundaries,
+	isBetweenExcludingMin,
+	isBetweenExcludingMax,
 } from './number.js';
 
 describe('number filters', () => {
@@ -58,6 +62,16 @@ describe('number filters', () => {
 		);
 	});
 
+	describe('isMultipleOf', () => {
+		it.each([
+			{ m: 2, input: someElements, expected: [0, -2, -4.0] },
+			{ m: 3, input: someElements, expected: [0, 3] },
+			{ m: 4, input: someElements, expected: [0, -4] },
+		])('returns true if the argument is even', ({ m, input, expected }) => {
+			expect(input.filter(isMultipleOf(m))).toEqual(expected);
+		});
+	});
+
 	describe('isEven', () => {
 		it.each([{ input: someElements, expected: [0, -2, -4.0] }])(
 			'returns true if the argument is even',
@@ -102,10 +116,54 @@ describe('number filters', () => {
 				max: 3,
 				expected: [0, 1, 1.1, 1.9, -2, 3.0],
 			},
+		])('returns true if the argument is within a range', ({ input, min, max, expected }) => {
+			expect(input.filter(isBetween(min, max))).toEqual(expected);
+		});
+	});
+
+	describe('isBetweenExcludingBoundaries', () => {
+		it.each([
+			{
+				input: someElements,
+				min: -2,
+				max: 3,
+				expected: [0, 1, 1.1, 1.9],
+			},
 		])(
-			'returns true if the argument is within a range',
+			'returns true if the argument is within a range (excluding values equal to boundaries)',
 			({ input, min, max, expected }) => {
-				expect(input.filter(isBetween(min, max))).toEqual(expected);
+				expect(input.filter(isBetweenExcludingBoundaries(min, max))).toEqual(expected);
+			}
+		);
+	});
+
+	describe('isBetweenExcludingMin', () => {
+		it.each([
+			{
+				input: someElements,
+				min: -2,
+				max: 3,
+				expected: [0, 1, 1.1, 1.9, 3.0],
+			},
+		])(
+			'returns true if the argument is within a range (excluding values equals to min)',
+			({ input, min, max, expected }) => {
+				expect(input.filter(isBetweenExcludingMin(min, max))).toEqual(expected);
+			}
+		);
+	});
+	describe('isBetweenExcludingMax', () => {
+		it.each([
+			{
+				input: someElements,
+				min: -2,
+				max: 3,
+				expected: [0, 1, 1.1, 1.9, -2],
+			},
+		])(
+			'returns true if the argument is within a range (excluding values equals to max)',
+			({ input, min, max, expected }) => {
+				expect(input.filter(isBetweenExcludingMax(min, max))).toEqual(expected);
 			}
 		);
 	});

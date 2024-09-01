@@ -26,9 +26,13 @@ export const isGreaterOrEqualTo = not(isLowerThan);
  */
 export const isLowerOrEqualTo = not(isGreaterThan);
 /**
+ * Returns true if the number is multiple of another number m
+ */
+export const isMultipleOf = (m: number) => (n: number) => n % m === 0;
+/**
  * Returns true if the number is even
  */
-export const isEven = (n: number) => n % 2 === 0;
+export const isEven = isMultipleOf(2);
 /**
  * Returns true if the number is odd
  */
@@ -60,5 +64,19 @@ export const isNotZero = not(isZero);
 /**
  * Returns true if the number is between a min/max (included) range
  */
-export const isBetween = (min: number, max: number) =>
-	and(isGreaterOrEqualTo(min), isLowerOrEqualTo(max));
+export const isBetween = (min: number, max: number) => and(isGreaterOrEqualTo(min), isLowerOrEqualTo(max));
+/**
+ * Returns true if the number is between a min/max (excluded) range
+ */
+export const isBetweenExcludingBoundaries = (min: number, max: number) =>
+	and(isGreaterThan(min), isLowerThan(max));
+/**
+ * Returns true if the number is between a min/max (excluding min) range
+ */
+export const isBetweenExcludingMin = (min: number, max: number) =>
+	and(isGreaterThan(min), isLowerOrEqualTo(max));
+/**
+ * Returns true if the number is between a min/max (excluding max) range
+ */
+export const isBetweenExcludingMax = (min: number, max: number) =>
+	and(isGreaterOrEqualTo(min), isLowerThan(max));
