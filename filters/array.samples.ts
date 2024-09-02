@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { isIncludedIn, isNotIncludedIn } from './array.js';
 
 const samples = [1, 'Ciao'];
