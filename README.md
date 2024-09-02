@@ -27,16 +27,16 @@ See how _fp-filters_ allows you to stop rewriting the same code over and over ag
 
 ```js
 // JS
-array.filter((id) => id === userId);
+ids.filter((id) => id === currentUserId);
 // fp-filters
-array.filter(is(userId));
+ids.filter(is(currentUserId));
 ```
 
 ```js
 // JS
-array.filter((element) => element !== 0);
+scores.filter((element) => element !== 0);
 // fp-filters
-array.filter(isNotZero);
+scores.filter(isNotZero);
 ```
 
 ```js
@@ -50,38 +50,38 @@ array.filter(isEven);
 // JS
 array.filter((arg) => arg >= 10 && arg <= 50);
 // fp-filters
-array.filter(clamp(10, 50));
+array.filter(isBetween(10, 50));
 ```
 
 #### collections examples:
 
 ```js
-const selectedUsers = ['John', 'Gina', 'Ed'];
+const allergens = ['crustaceans', 'gluten', 'mushrooms', 'peanuts',];
 // JS
-array.filter((arg) => selectedUsers.includes(arg));
+const allergenIngredients = ingredients.filter((arg) => allergens.includes(arg));
 // fp-filters
-array.filter(isOneOf(selectedUsers));
+const allergenIngredients = ingredients.filter(isIncludedIn(allergens));
 ```
 
 ```js
 // JS
-array.filter((obj) => obj.valid !== undefined && obj.id !== undefined && obj.plu !== undefined);
+products.filter((obj) => obj.id !== undefined && obj.plu !== undefined);
 // fp-filters
-array.filter(hasProps(['valid', 'id', 'plu']));
+products.filter(hasProps(['id', 'plu']));
 ```
 
 ```js
 // JS
-array.filter((obj) => obj.country === countryId && obj.plu === plu);
+products.find((obj) => obj.country === countryId && obj.plu === plu);
 // fp-filters
-array.filter(hasProps(['country', 'plu'], [countryId, plu]));
+products.find(hasProps(['country', 'plu'], [countryId, plu]));
 ```
 
 ```js
 // JS
 array.filter((obj) => obj.id === someOtherObj.id && obj.brand === someOtherObj.brand);
 // fp-filters
-array.filter(sameProps(someOtherObj, ['id', 'brand']));
+array.filter(hasSameProps(someOtherObj, ['id', 'brand']));
 ```
 
 ```js
@@ -105,7 +105,7 @@ array.filter(isNotNil);
 array.filter((arg) => typeof arg === 'boolean');
 // fp-filters
 array.filter(isBoolean);
-// do not be tricked by `array.filter(Boolean);` is very different as 
+// do not be tricked by `array.filter(Boolean);`. It is different as 
 // it casts the content and then evaluate its truthyness
 ```
 
@@ -122,29 +122,40 @@ array.filter(pattern(false, true, true));
 // JS
 array.filter((arg, index) => index % 3 === 1);
 // fp-filters
-array.filter(everyN(3, 1));
+array.filter(isNthIndex(3, 1));
 ```
 
 ## Negate or combine filters
 
-Most of the functions include aliases for their negated versions:
+All the functions include aliases for their negated versions:
 
 ```js
+// E.g.: 
+array.filter(is(5))
 array.filter(isNot(5))
+
+array.filter(isBetween(5, 10))
+array.filter(isNotBetween(5, 10))
+
+array.filter(isNil)
 array.filter(isNotNil)
+
+array.filter(isEmpty)
 array.filter(isNotEmpty)
+
+array.filter(isInstanceOf(SomeClass));
 array.filter(isNotInstanceOf(SomeClass));
 ```
 
 but **you can make your own**.
 
-> _fp-filters_ offers very powerful functions to combine or negate filters
+> _fp-filters_ leaverages _fp-booleans_ 's very powerful functions to combine or negate functions
 
 #### Some examples:
 
 ```js
 array.filter(not(is(5)));
-array.filter(and(gte(MIN_PRICE), not(isRound)));
+array.filter(and(isGreaterOrEqualTo(MIN_PRICE), not(isRound)));
 array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
 ```
 
@@ -165,8 +176,6 @@ yarn add fp-filters
 ```
 
 ## Contributions
-
-Looking forward for some help, **especially with the TypeScript annotations which is currently just a draft**.
 
 [MIT](https://opensource.org/licenses/MIT)
 
