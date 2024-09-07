@@ -20,57 +20,98 @@ import {
 	TDateEntity,
 	TDaysOfTheWeek,
 } from './date';
-import { addEmptyLabel } from '../utils';
+
+const toDate = (s: string) => new Date(s);
 
 describe('date', () => {
 	describe('isSameDate', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-01 00:00:05', expected: false },
-			{ comparisonDate: '2024-06-01 00:00:05', input: '2024-06-01 00:00:05', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-		])('', ({ comparisonDate, input, expected }) => {
-			expect(isSameDate(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-06-01', '2024-06-02'],
+				expected: ['2024-06-01'],
+			},
+			{
+				comparison: '2024-06-01 00:00:01',
+				input: ['2024-06-01 00:00:01', '2024-06-01 00:00:00', '2024-06-01 00:00:02'],
+				expected: ['2024-06-01 00:00:01'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameDate(new Date(comparison)))).toEqual(expected.map(toDate));
 		});
 	});
 
 	describe('isFutureDate', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: false },
-			{ comparisonDate: '2024-06-01', input: '2024-05-31', expected: false },
-		])('', ({ comparisonDate, input, expected }) => {
-			expect(isFutureDate(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-06-02', '2024-06-01', '2024-05-31'],
+				expected: ['2024-06-02'],
+			},
+			{
+				comparison: '2024-06-01 00:00:01',
+				input: ['2024-06-01 00:00:02', '2024-06-01 00:00:01', '2024-06-01 00:00:00'],
+				expected: ['2024-06-01 00:00:02'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isFutureDate(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
 
 	describe('isPastDate', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-05-31', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: false },
-			{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-		])('', ({ comparisonDate, input, expected }) => {
-			expect(isPastDate(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-05-31', '2024-06-01', '2024-06-02'],
+				expected: ['2024-05-31'],
+			},
+			{
+				comparison: '2024-06-01 00:00:01',
+				input: ['2024-06-01 00:00:00', '2024-06-01 00:00:01'],
+				expected: ['2024-06-01 00:00:00'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isPastDate(new Date(comparison)))).toEqual(expected.map(toDate));
 		});
 	});
 
 	describe('isFutureOrSameDate', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-05-31', expected: false },
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: true },
-		])('', ({ comparisonDate, input, expected }) => {
-			expect(isFutureOrSameDate(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-05-31', '2024-06-01', '2024-06-02'],
+				expected: ['2024-06-01', '2024-06-02'],
+			},
+			{
+				comparison: '2024-06-01 00:00:01',
+				input: ['2024-06-01 00:00:00', '2024-06-01 00:00:01', '2024-06-01 00:00:02'],
+				expected: ['2024-06-01 00:00:01', '2024-06-01 00:00:02'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isFutureOrSameDate(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
 
 	describe('isPastOrSameDate', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-05-31', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-		])('', ({ comparisonDate, input, expected }) => {
-			expect(isPastOrSameDate(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-05-31', '2024-06-01', '2024-06-02'],
+				expected: ['2024-05-31', '2024-06-01'],
+			},
+			{
+				comparison: '2024-06-01 00:00:01',
+				input: ['2024-06-01 00:00:00', '2024-06-01 00:00:01', '2024-06-01 00:00:02'],
+				expected: ['2024-06-01 00:00:00', '2024-06-01 00:00:01'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isPastOrSameDate(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
 
@@ -95,35 +136,34 @@ describe('date', () => {
 
 	describe('isWeekend', () => {
 		it.each([
-			{ input: '2024-08-16', expected: false },
-			{ input: '2024-08-17', expected: true },
-			{ input: '2024-08-18', expected: true },
-			{ input: '2024-08-19', expected: false },
+			{
+				input: ['2024-08-16', '2024-08-17', '2024-08-18', '2024-08-19'],
+				expected: ['2024-08-17', '2024-08-18'],
+			},
 		])('', ({ input, expected }) => {
-			expect(isWeekend(new Date(input))).toEqual(expected);
+			expect(input.map(toDate).filter(isWeekend)).toEqual(expected.map(toDate));
 		});
 	});
 
 	describe('isWorkingWeek', () => {
 		it.each([
-			{ input: '2024-08-16', expected: true },
-			{ input: '2024-08-17', expected: false },
-			{ input: '2024-08-18', expected: false },
-			{ input: '2024-08-19', expected: true },
+			{
+				input: ['2024-08-16', '2024-08-17', '2024-08-18', '2024-08-19'],
+				expected: ['2024-08-16', '2024-08-19'],
+			},
 		])('', ({ input, expected }) => {
-			expect(isWorkingWeek(new Date(input))).toEqual(expected);
+			expect(input.map(toDate).filter(isWorkingWeek)).toEqual(expected.map(toDate));
 		});
 	});
 
 	describe('isLeapYear', () => {
 		it.each([
-			{ input: '2024-01-01', expected: true },
-			{ input: '2023-01-01', expected: false },
-			{ input: '2100-01-01', expected: false },
-			{ input: '1900-01-01', expected: false },
-			{ input: '2000-01-01', expected: true },
+			{
+				input: ['2024-05-01', '2023-05-01', '2100-05-01', '1900-05-01', '2000-05-01'],
+				expected: ['2024-05-01', '2000-05-01'],
+			},
 		])('', ({ input, expected }) => {
-			expect(isLeapYear(new Date(input))).toEqual(expected);
+			expect(input.map(toDate).filter(isLeapYear)).toEqual(expected.map(toDate));
 		});
 	});
 
@@ -151,7 +191,7 @@ describe('date', () => {
 
 	type TIsSameTestCase = {
 		type: TDateEntity;
-		comparisonDate: string;
+		comparison: string;
 		input: string;
 		expected: boolean;
 		label?: string;
@@ -159,148 +199,171 @@ describe('date', () => {
 
 	describe('isSame', () => {
 		it.each<TIsSameTestCase>([
-			{ type: 'year', comparisonDate: '2024-06-01', input: '2024-01-01', expected: true },
-			{ type: 'year', comparisonDate: '2024-06-01', input: '2026-06-01', expected: false },
-			{ type: 'month', comparisonDate: '2024-06-01', input: '2026-06-01', expected: true },
-			{ type: 'month', comparisonDate: '2024-06-01', input: '2024-07-01', expected: false },
-			{ type: 'day', comparisonDate: '2024-06-01', input: '2011-08-01', expected: true },
-			{ type: 'day', comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-			{ type: 'dayOfTheWeek', comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ type: 'dayOfTheWeek', comparisonDate: '2024-06-01', input: '2024-06-08', expected: true },
-			{ type: 'dayOfTheWeek', comparisonDate: '2024-06-01', input: '2024-06-15', expected: true },
-			{ type: 'dayOfTheWeek', comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-			{ type: 'hours', comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ type: 'hours', comparisonDate: '2024-06-01 00:01', input: '2024-06-01 00:02', expected: true },
-			{ type: 'hours', comparisonDate: '2024-06-01 00:01', input: '2000-02-14 00:52', expected: true },
-			{ type: 'hours', comparisonDate: '2024-06-01 00:01', input: '2000-02-14 01:52', expected: false },
+			{ type: 'year', comparison: '2024-06-01', input: '2024-01-01', expected: true },
+			{ type: 'year', comparison: '2024-06-01', input: '2026-06-01', expected: false },
+			{ type: 'month', comparison: '2024-06-01', input: '2026-06-01', expected: true },
+			{ type: 'month', comparison: '2024-06-01', input: '2024-07-01', expected: false },
+			{ type: 'day', comparison: '2024-06-01', input: '2011-08-01', expected: true },
+			{ type: 'day', comparison: '2024-06-01', input: '2024-06-02', expected: false },
+			{ type: 'dayOfTheWeek', comparison: '2024-06-01', input: '2024-06-01', expected: true },
+			{ type: 'dayOfTheWeek', comparison: '2024-06-01', input: '2024-06-08', expected: true },
+			{ type: 'dayOfTheWeek', comparison: '2024-06-01', input: '2024-06-15', expected: true },
+			{ type: 'dayOfTheWeek', comparison: '2024-06-01', input: '2024-06-02', expected: false },
+			{ type: 'hours', comparison: '2024-06-01', input: '2024-06-01', expected: true },
+			{ type: 'hours', comparison: '2024-06-01 00:01', input: '2024-06-01 00:02', expected: true },
+			{ type: 'hours', comparison: '2024-06-01 00:01', input: '2000-02-14 00:52', expected: true },
+			{ type: 'hours', comparison: '2024-06-01 00:01', input: '2000-02-14 01:52', expected: false },
 
-			{ type: 'minutes', comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
+			{ type: 'minutes', comparison: '2024-06-01', input: '2024-06-01', expected: true },
 			{
-				label: 'same mins different hour',
 				type: 'minutes',
-				comparisonDate: '2024-06-01 00:01',
+				comparison: '2024-06-01 00:01',
 				input: '2024-06-01 01:01',
 				expected: true,
 			},
 			{
-				label: 'same mins different date',
 				type: 'minutes',
-				comparisonDate: '2024-06-01 00:01',
+				comparison: '2024-06-01 00:01',
 				input: '2000-02-14 07:01',
 				expected: true,
 			},
 			{
 				type: 'minutes',
-				comparisonDate: '2024-06-01 00:01',
+				comparison: '2024-06-01 00:01',
 				input: '2000-02-14 00:52',
 				expected: false,
 			},
-		])('$label', ({ type, comparisonDate, input, expected }) => {
-			expect(isSame(type)(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+		])('', ({ type, comparison, input, expected }) => {
+			expect(isSame(type)(new Date(comparison))(new Date(input))).toEqual(expected);
 		});
 	});
 
 	describe('isSameYearToDate', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-01-01', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2023-12-31', expected: false },
-			{ comparisonDate: '2024-06-01', input: '2024-03-01', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-			{ comparisonDate: '2024-06-01', input: '2024-12-31', expected: false },
-		])('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameYearToDate(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-01-01', '2023-12-31', '2024-03-01', '2024-06-01', '2024-06-02', '2024-12-31'],
+				expected: ['2024-01-01', '2024-03-01', '2024-06-01'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameYearToDate(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
 
 	describe('isSameYearMonth', () => {
 		it.each([
-			{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-			{ comparisonDate: '2024-06-15', input: '2024-06-15', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-06-30', expected: true },
-			{ comparisonDate: '2024-06-01', input: '2024-05-31', expected: false },
-			{ comparisonDate: '2024-06-01', input: '2024-07-01', expected: false },
-		])('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameYearMonth(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+			{
+				comparison: '2024-06-01',
+				input: ['2024-06-01', '2024-06-30', '2024-05-31', '2024-07-01', '2025-06-01'],
+				expected: ['2024-06-01', '2024-06-30'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameYearMonth(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
 
 	describe('isSameMonthDay', () => {
-		it.each(
-			[
-				{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-				{ comparisonDate: '2024-06-01', input: '2023-06-01', expected: true },
-				{ label: 'Boh', comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-				{ comparisonDate: '2024-06-01', input: '2024-05-01', expected: false },
-				{ comparisonDate: '2024-06-01', input: '2023-05-01', expected: false },
-			].map(addEmptyLabel)
-		)('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameMonthDay(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+		it.each([
+			{
+				comparison: '2024-06-01',
+				input: ['2024-06-01', '2023-06-01', '2024-06-02', '2024-05-01', '2023-05-01'],
+				expected: ['2024-06-01', '2023-06-01'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameMonthDay(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
 
 	describe('isSameYearMonthDay', () => {
-		it.each(
-			[
-				{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 00:01', expected: true },
-				{ comparisonDate: '2024-06-01', input: '2024-06-02', expected: false },
-				{ comparisonDate: '2024-06-01', input: '2024-07-01', expected: false },
-				{ comparisonDate: '2024-06-01', input: '2023-06-01', expected: false },
-			].map(addEmptyLabel)
-		)('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameYearMonthDay(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+		it.each([
+			{
+				comparison: '2024-06-01 00:00',
+				input: ['2024-06-01 00:01'],
+				expected: ['2024-06-01 00:01'],
+			},
+			{
+				comparison: '2024-06-01',
+				input: ['2024-06-01', '2024-06-02', '2024-07-01', '2023-06-01'],
+				expected: ['2024-06-01'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameYearMonthDay(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
+
 	describe('isSameHoursMinutes', () => {
-		it.each(
-			[
-				{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-				{ comparisonDate: '2024-06-01', input: '2023-07-02', expected: true },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2024-06-01 00:00:00', expected: true },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2023-07-02 00:00:00', expected: true },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2023-07-02 00:00:01', expected: true },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2024-06-01 00:01:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2024-06-01 01:00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2023-07-02 03:01:20', expected: false },
-			].map(addEmptyLabel)
-		)('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameHoursMinutes(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+		it.each([
+			{
+				comparison: '2024-06-01',
+				input: ['2024-06-01', '2024-06-01'],
+				expected: ['2024-06-01', '2024-06-01'],
+			},
+			{
+				comparison: '2024-06-01 00:00:00',
+				input: ['2024-06-01 00:00:00', '2023-07-02 00:00:00', '2023-07-02 00:00:01'],
+				expected: ['2024-06-01 00:00:00', '2023-07-02 00:00:00', '2023-07-02 00:00:01'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameHoursMinutes(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
+
 	describe('isSameYearMonthDayHours', () => {
-		it.each(
-			[
-				{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 00:00', expected: true },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 00:01', expected: true },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 01:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-02 00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-07-01 00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2023-06-01 00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2023-07-02 01:01', expected: false },
-			].map(addEmptyLabel)
-		)('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameYearMonthDayHours(new Date(comparisonDate))(new Date(input))).toEqual(expected);
+		it.each([
+			{ comparison: '2024-06-01', input: ['2024-06-01'], expected: ['2024-06-01'] },
+			{
+				comparison: '2024-06-01 00:00',
+				input: [
+					'2024-06-01 00:00:00',
+					'2024-06-01 00:00:01',
+					'2024-06-01 00:01:00',
+					'2024-06-01 01:00',
+					'2024-06-02 00:00',
+					'2024-07-01 00:00',
+					'2025-06-01 00:00',
+					'2025-07-02 01:01',
+				],
+				expected: ['2024-06-01 00:00:00', '2024-06-01 00:00:01', '2024-06-01 00:01:00'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameYearMonthDayHours(new Date(comparison)))).toEqual(
+				expected.map(toDate)
+			);
 		});
 	});
+
 	describe('isSameYearMonthDayHoursMinutes', () => {
-		it.each(
-			[
-				{ comparisonDate: '2024-06-01', input: '2024-06-01', expected: true },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2024-06-01 00:00:00', expected: true },
-				{ comparisonDate: '2024-06-01 00:00:00', input: '2024-06-01 00:00:01', expected: true },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 00:00', expected: true },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 00:01', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-01 01:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-06-02 00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2024-07-01 00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2023-06-01 00:00', expected: false },
-				{ comparisonDate: '2024-06-01 00:00', input: '2023-07-02 01:01', expected: false },
-			].map(addEmptyLabel)
-		)('$label', ({ comparisonDate, input, expected }) => {
-			expect(isSameYearMonthDayHoursMinutes(new Date(comparisonDate))(new Date(input))).toEqual(
-				expected
+		it.each([
+			{ comparison: '2024-06-01', input: ['2024-06-01'], expected: ['2024-06-01'] },
+			{
+				comparison: '2024-06-01 00:00',
+				input: [
+					'2024-06-01 00:00:00',
+					'2024-06-01 00:00:01',
+					'2024-06-01 00:01:01',
+					'2024-06-01 00:00',
+					'2024-06-01 00:01',
+					'2024-06-01 01:00',
+					'2024-06-02 00:00',
+					'2024-07-01 00:00',
+					'2025-06-01 00:00',
+					'2025-07-02 01:01',
+				],
+				expected: ['2024-06-01 00:00:00', '2024-06-01 00:00:01', '2024-06-01 00:00'],
+			},
+		])('', ({ comparison, input, expected }) => {
+			expect(input.map(toDate).filter(isSameYearMonthDayHoursMinutes(new Date(comparison)))).toEqual(
+				expected.map(toDate)
 			);
 		});
 	});
