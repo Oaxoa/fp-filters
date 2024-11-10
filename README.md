@@ -10,16 +10,17 @@ A collection of common filter functions that are written (and can be used) in a 
 fp-filters functions are:
 
 1. pure
-2. tiny
-2. composable
-3. zero-dependencies
-4. grouped by semantics
-5. tree-shakeable
-6. 100% tested by design
+1. tiny
+1. composable
+1. zero-dependencies
+1. grouped by semantics
+1. tree-shakeable
+1. 100% tested by design
 
 ### Why
 
-See how _fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability:
+See how _fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability.
+So that you will probably never write another filter function 🚀!
 
 ## Examples
 
@@ -113,7 +114,7 @@ array.filter(isBoolean);
 
 ```js
 // JS
-array.filter((arg, index) => index % 3 === 0 || index % 2 === 2);
+array.filter((arg, index) => index % 3 === 1 || index % 3 === 2);
 // fp-filters
 array.filter(pattern(false, true, true));
 ```
@@ -122,12 +123,13 @@ array.filter(pattern(false, true, true));
 // JS
 array.filter((arg, index) => index % 3 === 1);
 // fp-filters
-array.filter(isNthIndex(3, 1));
+array.filter(isEveryNthIndex(3, 1));
 ```
 
 ## Negate or combine filters
 
-All the functions include aliases for their negated versions:
+Most of the functions include aliases for their negated versions (
+using [fp-booleans](https://npmjs.org/package/fp-booleans)):
 
 ```js
 // E.g.: 
