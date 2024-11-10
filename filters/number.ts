@@ -2,6 +2,10 @@ import { and, not } from 'fp-booleans';
 import { is } from './misc.js';
 
 /**
+ * Returns true if the number is NaN
+ */
+export const isNotNaN = not(isNaN);
+/**
  * Returns true if the number is round
  */
 export const isRound = (arg: number) => Math.round(arg) === arg;

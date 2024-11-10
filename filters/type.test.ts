@@ -1,29 +1,8 @@
-import {
-	isBoolean,
-	isNotBoolean,
-	isNotNumber,
-	isNotString,
-	isNumber,
-	isString,
-	isInstanceOf,
-	isNotInstanceOf,
-	isNotOfType,
-	isOfType,
-	isObject,
-	isNotArray,
-	isArray,
-	isNotObject,
-	isUndefined,
-	isNotNull,
-	isNotUndefined,
-	isNull,
-	isNotNaN,
-	isNil,
-	isNotNil,
-} from './type.js';
+import { isInstanceOf, isOfType, TTypeMap, isNotOfType, isSameTypeAs, isNotSameTypeAs } from './type.js';
 
 describe('type filters', () => {
-	const someElements = [
+	type TTestEntryInput = number | string | boolean | unknown[] | object | undefined | null;
+	const someElements: TTestEntryInput[] = [
 		1,
 		2,
 		true,
@@ -41,7 +20,12 @@ describe('type filters', () => {
 	];
 
 	describe('isOfType', () => {
-		it.each([
+		type TestEntry = {
+			input: TTestEntryInput[];
+			type: keyof TTypeMap;
+			expected: unknown[];
+		};
+		it.each<TestEntry>([
 			{
 				input: someElements,
 				type: 'number',
@@ -52,91 +36,31 @@ describe('type filters', () => {
 				type: 'object',
 				expected: [[], [1, 2], {}, { a: 1 }, null],
 			},
-		])('returns elements that whom type is the argument', ({ input, type, expected }) => {
+		])('returns elements that match the type', ({ input, type, expected }) => {
 			expect(input.filter(isOfType(type))).toEqual(expected);
 		});
 	});
 
-	describe('isBoolean', () => {
-		it.each([
+	describe('isNotOfType', () => {
+		type TestEntry = {
+			input: TTestEntryInput[];
+			type: keyof TTypeMap;
+			expected: unknown[];
+		};
+		it.each<TestEntry>([
 			{
 				input: someElements,
-				expected: [true, false],
+				type: 'number',
+				expected: [true, false, 'true', 'false', 'hello', [], [1, 2], {}, { a: 1 }, undefined, null],
 			},
-		])('returns boolean values', ({ input, expected }) => {
-			expect(input.filter(isBoolean)).toEqual(expected);
-		});
-	});
-
-	describe('isString', () => {
-		it.each([
 			{
 				input: someElements,
-				expected: ['true', 'false', 'hello'],
+				type: 'object',
+				expected: [1, 2, true, false, 'true', 'false', 'hello', undefined, NaN],
 			},
-		])('returns strings', ({ input, expected }) => {
-			expect(input.filter(isString)).toEqual(expected);
+		])('returns elements that do not match the type', ({ input, type, expected }) => {
+			expect(input.filter(isNotOfType(type))).toEqual(expected);
 		});
-	});
-
-	describe('isNumber', () => {
-		it.each([
-			{
-				input: someElements,
-				expected: [1, 2, NaN],
-			},
-		])('returns numbers', ({ input, expected }) => {
-			expect(input.filter(isNumber)).toEqual(expected);
-		});
-	});
-
-	describe('isObject', () => {
-		it.each([
-			{
-				input: someElements,
-				expected: [[], [1, 2], {}, { a: 1 }, null],
-			},
-		])('returns objects (typeof based)', ({ input, expected }) => {
-			expect(input.filter(isObject)).toEqual(expected);
-		});
-	});
-
-	describe('isArray', () => {
-		it.each([
-			{
-				input: someElements,
-				expected: [[], [1, 2]],
-			},
-		])('returns arrays', ({ input, expected }) => {
-			expect(input.filter(isArray)).toEqual(expected);
-		});
-	});
-
-	describe('isUndefined', () => {
-		it.each([{ input: someElements, expected: [undefined] }])(
-			'returns undefined elements',
-			({ input, expected }) => {
-				expect(input.filter(isUndefined)).toEqual(expected);
-			}
-		);
-	});
-
-	describe('isNull', () => {
-		it.each([{ input: someElements, expected: [null] }])(
-			'returns null elements',
-			({ input, expected }) => {
-				expect(input.filter(isNull)).toEqual(expected);
-			}
-		);
-	});
-
-	describe('isNil', () => {
-		it.each([{ input: someElements, expected: [undefined, null] }])(
-			'returns nil (nullable) elements',
-			({ input, expected }) => {
-				expect(input.filter(isNil)).toEqual(expected);
-			}
-		);
 	});
 
 	describe('isInstanceOf', () => {
@@ -155,6 +79,66 @@ describe('type filters', () => {
 			'returns elements that are instance of a specific class',
 			({ input, classReference, expected }) => {
 				expect(input.filter(isInstanceOf(classReference))).toEqual(expected);
+			}
+		);
+	});
+
+	describe('isSameTypeAs', () => {
+		it.each([
+			{
+				input: someElements,
+				comparison: 42,
+				expected: [1, 2, NaN],
+			},
+			{
+				input: someElements,
+				comparison: 'sup?',
+				expected: ['true', 'false', 'hello'],
+			},
+			{
+				input: someElements,
+				comparison: [9, 8, 7],
+				expected: [[], [1, 2], {}, { a: 1 }, null],
+			},
+			{
+				input: someElements,
+				comparison: { hello: 'world' },
+				expected: [[], [1, 2], {}, { a: 1 }, null],
+			},
+		])(
+			'returns elements that have the same type of the comparison argument',
+			({ input, comparison, expected }) => {
+				expect(input.filter(isSameTypeAs(comparison))).toEqual(expected);
+			}
+		);
+	});
+
+	describe('isNotSameTypeAs', () => {
+		it.each([
+			{
+				input: someElements,
+				comparison: 42,
+				expected: [true, false, 'true', 'false', 'hello', [], [1, 2], {}, { a: 1 }, undefined, null],
+			},
+			{
+				input: someElements,
+				comparison: 'sup?',
+				expected: [1, 2, true, false, [], [1, 2], {}, { a: 1 }, undefined, null, NaN],
+			},
+			{
+				input: someElements,
+				comparison: [9, 8, 7],
+				expected: [1, 2, true, false, 'true', 'false', 'hello', undefined, NaN],
+			},
+			{
+				input: someElements,
+				comparison: { hello: 'world' },
+				expected: [1, 2, true, false, 'true', 'false', 'hello', undefined, NaN],
+			},
+		])(
+			'returns elements that do not have the same type of the comparison argument',
+			({ input, comparison, expected }) => {
+				expect(input.filter(isNotSameTypeAs(comparison))).toEqual(expected);
 			}
 		);
 	});

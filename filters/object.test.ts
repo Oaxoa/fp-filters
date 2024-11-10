@@ -5,13 +5,7 @@ import { isNumber } from './type.js';
 import { is } from './misc.js';
 
 describe('object filters', () => {
-	const someObjects = [
-		{ a: 0, b: 1 },
-		{ a: 5, b: 6 },
-		{ a: 7, b: 6 },
-		{ a: [1], c: 10 },
-		{ d: 'hello' },
-	];
+	const someObjects = [{ a: 0, b: 1 }, { a: 5, b: 6 }, { a: 7, b: 6 }, { a: [1], c: 10 }, { d: 'hello' }];
 
 	describe('hasProp', () => {
 		it.each([
@@ -25,12 +19,9 @@ describe('object filters', () => {
 					{ a: [1], c: 10 },
 				],
 			},
-		])(
-			'returns true if the argument has a specific prop',
-			({ input, propName, expected }) => {
-				expect(input.filter(hasProp(propName))).toEqual(expected);
-			}
-		);
+		])('returns true if the argument has a specific prop', ({ input, propName, expected }) => {
+			expect(input.filter(hasProp(propName))).toEqual(expected);
+		});
 
 		it.each([
 			{
@@ -84,12 +75,9 @@ describe('object filters', () => {
 					{ a: 7, b: 6 },
 				],
 			},
-		])(
-			'returns true if the argument has a specific set of props',
-			({ input, propNames, expected }) => {
-				expect(input.filter(hasProps(propNames))).toEqual(expected);
-			}
-		);
+		])('returns true if the argument has a specific set of props', ({ input, propNames, expected }) => {
+			expect(input.filter(hasProps(propNames))).toEqual(expected);
+		});
 
 		it.each([
 			{
@@ -118,7 +106,7 @@ describe('object filters', () => {
 			{
 				input: someObjects,
 				propNames: ['a', 'b'],
-				values: [, isLowerThan(10)],
+				values: [undefined, isLowerThan(10)],
 				expected: [
 					{ a: 0, b: 1 },
 					{ a: 5, b: 6 },
@@ -150,9 +138,7 @@ describe('object filters', () => {
 		])(
 			'returns true if the argument has a specific property with the same value as a comparison object',
 			({ input, comparisonObject, propertyName, expected }) => {
-				expect(input.filter(hasSameProp(comparisonObject, propertyName))).toEqual(
-					expected
-				);
+				expect(input.filter(hasSameProp(comparisonObject, propertyName))).toEqual(expected);
 			}
 		);
 	});
@@ -186,9 +172,7 @@ describe('object filters', () => {
 		])(
 			'returns true if the argument has a specific set of properties with the same value as a comparison object',
 			({ input, comparisonObject, propertyNames, expected }) => {
-				expect(input.filter(hasSameProps(comparisonObject, propertyNames))).toEqual(
-					expected
-				);
+				expect(input.filter(hasSameProps(comparisonObject, propertyNames))).toEqual(expected);
 			}
 		);
 	});

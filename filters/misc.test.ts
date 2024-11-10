@@ -1,4 +1,5 @@
-import { all, is, none } from './misc.js';
+import { all, is, isNot, none } from './misc.js';
+import { not } from 'fp-booleans';
 
 describe('misc filters', () => {
 	const someElements = [1, 2, 3, 2, 'hello'];
@@ -13,12 +14,9 @@ describe('misc filters', () => {
 	});
 
 	describe('none', () => {
-		it.each([{ input: someElements, expected: [] }])(
-			'returns no elements',
-			({ input, expected }) => {
-				expect(input.filter(none)).toEqual(expected);
-			}
-		);
+		it.each([{ input: someElements, expected: [] }])('returns no elements', ({ input, expected }) => {
+			expect(input.filter(none)).toEqual(expected);
+		});
 	});
 
 	describe('is', () => {
@@ -27,6 +25,15 @@ describe('misc filters', () => {
 			{ input: someElements, value: 'hello', expected: ['hello'] },
 		])('returns elements that have a specific value', ({ input, value, expected }) => {
 			expect(input.filter(is(value))).toEqual(expected);
+		});
+	});
+
+	describe('isNot', () => {
+		it.each([
+			{ input: someElements, value: 2, expected: [1, 3, 'hello'] },
+			{ input: someElements, value: 'hello', expected: [1, 2, 3, 2] },
+		])('returns elements that do not have a specific value', ({ input, value, expected }) => {
+			expect(input.filter(isNot(value))).toEqual(expected);
 		});
 	});
 });

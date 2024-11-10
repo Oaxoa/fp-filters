@@ -1,4 +1,4 @@
-import { isEvenIndex, isNthIndex, isOddIndex, pattern } from './position.js';
+import { isEvenIndex, isEveryNthIndex, pattern } from './position.js';
 
 describe('position', () => {
 	const someNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -43,11 +43,8 @@ describe('position', () => {
 				expected: [1, 3, 5, 7, 9],
 			},
 			{ input: someNumbers, every: 3, offset: 1, expected: [2, 5, 8] },
-		])(
-			'returns elements that have an even index',
-			({ input, every, offset, expected }) => {
-				expect(input.filter(isNthIndex(every, offset))).toEqual(expected);
-			}
-		);
+		])('returns elements that have an even index', ({ input, every, offset, expected }) => {
+			expect(input.filter(isEveryNthIndex(every, offset))).toEqual(expected);
+		});
 	});
 });
