@@ -6,6 +6,9 @@
   "author": "Pierluigi Pesenti",
   "license": "MIT",
   "repository": "https://github.com/Oaxoa/fp-filters",
+  "files": [
+    "dist/"
+  ],
   "exports": {
     "./array": {
       "import": "./dist/esm/filters/array.js",
