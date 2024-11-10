@@ -67,13 +67,56 @@
     "test": "jest --coverage",
     "test:watch": "jest --watchAll"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
   "exports": {
-    "./*": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/esm/index.d.ts"
+    "./array": {
+      "import": "./dist/esm/array.js",
+      "require": "./dist/cjs/array.js",
+      "types": "./dist/esm/array.d.ts"
+    },
+    "./boolean": {
+      "import": "./dist/esm/boolean.js",
+      "require": "./dist/cjs/boolean.js",
+      "types": "./dist/esm/boolean.d.ts"
+    },
+    "./date": {
+      "import": "./dist/esm/date.js",
+      "require": "./dist/cjs/date.js",
+      "types": "./dist/esm/date.d.ts"
+    },
+    "./length": {
+      "import": "./dist/esm/length.js",
+      "require": "./dist/cjs/length.js",
+      "types": "./dist/esm/length.d.ts"
+    },
+    "./misc": {
+      "import": "./dist/esm/misc.js",
+      "require": "./dist/cjs/misc.js",
+      "types": "./dist/esm/misc.d.ts"
+    },
+    "./number": {
+      "import": "./dist/esm/number.js",
+      "require": "./dist/cjs/number.js",
+      "types": "./dist/esm/number.d.ts"
+    },
+    "./object": {
+      "import": "./dist/esm/object.js",
+      "require": "./dist/cjs/object.js",
+      "types": "./dist/esm/object.d.ts"
+    },
+    "./position": {
+      "import": "./dist/esm/position.js",
+      "require": "./dist/cjs/position.js",
+      "types": "./dist/esm/position.d.ts"
+    },
+    "./string": {
+      "import": "./dist/esm/string.js",
+      "require": "./dist/cjs/string.js",
+      "types": "./dist/esm/string.d.ts"
+    },
+    "./type": {
+      "import": "./dist/esm/type.js",
+      "require": "./dist/cjs/type.js",
+      "types": "./dist/esm/type.d.ts"
     }
   }
 }
