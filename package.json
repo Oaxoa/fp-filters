@@ -1,13 +1,90 @@
 {
   "name": "fp-filters",
   "version": "0.3.0",
+  "type": "module",
   "description": "Curated collection of commonly used filter functions that are tiny, tested and composable",
   "author": "Pierluigi Pesenti",
   "license": "MIT",
-  "types": "./dist/esm/index.d.ts",
-  "files": [
-    "dist/"
-  ],
+  "repository": "https://github.com/Oaxoa/fp-filters",
+  "exports": {
+    "./array": {
+      "import": "./dist/esm/filters/array.js",
+      "require": "./dist/cjs/filters/array.js",
+      "types": "./dist/esm/filters/array.d.ts"
+    },
+    "./boolean": {
+      "import": "./dist/esm/filters/boolean.js",
+      "require": "./dist/cjs/filters/boolean.js",
+      "types": "./dist/esm/filters/boolean.d.ts"
+    },
+    "./date": {
+      "import": "./dist/esm/filters/date.js",
+      "require": "./dist/cjs/filters/date.js",
+      "types": "./dist/esm/filters/date.d.ts"
+    },
+    "./length": {
+      "import": "./dist/esm/filters/length.js",
+      "require": "./dist/cjs/filters/length.js",
+      "types": "./dist/esm/filters/length.d.ts"
+    },
+    "./misc": {
+      "import": "./dist/esm/filters/misc.js",
+      "require": "./dist/cjs/filters/misc.js",
+      "types": "./dist/esm/filters/misc.d.ts"
+    },
+    "./number": {
+      "import": "./dist/esm/filters/number.js",
+      "require": "./dist/cjs/filters/number.js",
+      "types": "./dist/esm/filters/number.d.ts"
+    },
+    "./object": {
+      "import": "./dist/esm/filters/object.js",
+      "require": "./dist/cjs/filters/object.js",
+      "types": "./dist/esm/filters/object.d.ts"
+    },
+    "./position": {
+      "import": "./dist/esm/filters/position.js",
+      "require": "./dist/cjs/filters/position.js",
+      "types": "./dist/esm/filters/position.d.ts"
+    },
+    "./string": {
+      "import": "./dist/esm/filters/string.js",
+      "require": "./dist/cjs/filters/string.js",
+      "types": "./dist/esm/filters/string.d.ts"
+    },
+    "./type": {
+      "import": "./dist/esm/filters/type.js",
+      "require": "./dist/cjs/filters/type.js",
+      "types": "./dist/esm/filters/type.d.ts"
+    }
+  },
+  "dependencies": {
+    "fp-booleans": "0.5.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.14.0",
+    "@types/jest": "29.5.14",
+    "eslint": "9.14.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.31.0",
+    "jest": "29.7.0",
+    "prettier": "3.3.3",
+    "ts-jest": "29.2.5",
+    "typescript": "5.6.3",
+    "typescript-eslint": "8.13.0"
+  },
+  "scripts": {
+    "build:ts:cjs": "tsc -p tsconfig.cjs.json",
+    "build:ts:esm": "tsc -p tsconfig.esm.json",
+    "build": "yarn clean && yarn build:ts:cjs && yarn build:ts:esm",
+    "clean": "rm -rf ./dist",
+    "lint": "eslint .",
+    "pack": "yarn --cwd ./dist pack",
+    "prettier": "prettier '**/*.ts'",
+    "prettier:fix": "prettier --write '**/*.ts'",
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll"
+  },
   "keywords": [
     "filter",
     "filter functions",
@@ -37,86 +114,5 @@
     "fp ts",
     "functional style",
     "immutable functions"
-  ],
-  "type": "module",
-  "repository": "https://github.com/Oaxoa/fp-filters",
-  "dependencies": {
-    "fp-booleans": "0.5.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "9.14.0",
-    "@types/jest": "29.5.14",
-    "eslint": "9.14.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.31.0",
-    "jest": "29.7.0",
-    "prettier": "3.3.3",
-    "ts-jest": "29.2.5",
-    "typescript": "5.6.3",
-    "typescript-eslint": "8.13.0"
-  },
-  "scripts": {
-    "build:ts:cjs": "tsc -p tsconfig.cjs.json",
-    "build:ts:esm": "tsc -p tsconfig.esm.json",
-    "build": "yarn clean && yarn build:ts:cjs && yarn build:ts:esm",
-    "clean": "rm -rf ./dist",
-    "lint": "eslint .",
-    "pack": "yarn --cwd ./dist pack",
-    "prettier": "prettier '**/*.ts'",
-    "prettier:fix": "prettier --write '**/*.ts'",
-    "test": "jest --coverage",
-    "test:watch": "jest --watchAll"
-  },
-  "exports": {
-    "./array": {
-      "import": "./dist/esm/array.js",
-      "require": "./dist/cjs/array.js",
-      "types": "./dist/esm/array.d.ts"
-    },
-    "./boolean": {
-      "import": "./dist/esm/boolean.js",
-      "require": "./dist/cjs/boolean.js",
-      "types": "./dist/esm/boolean.d.ts"
-    },
-    "./date": {
-      "import": "./dist/esm/date.js",
-      "require": "./dist/cjs/date.js",
-      "types": "./dist/esm/date.d.ts"
-    },
-    "./length": {
-      "import": "./dist/esm/length.js",
-      "require": "./dist/cjs/length.js",
-      "types": "./dist/esm/length.d.ts"
-    },
-    "./misc": {
-      "import": "./dist/esm/misc.js",
-      "require": "./dist/cjs/misc.js",
-      "types": "./dist/esm/misc.d.ts"
-    },
-    "./number": {
-      "import": "./dist/esm/number.js",
-      "require": "./dist/cjs/number.js",
-      "types": "./dist/esm/number.d.ts"
-    },
-    "./object": {
-      "import": "./dist/esm/object.js",
-      "require": "./dist/cjs/object.js",
-      "types": "./dist/esm/object.d.ts"
-    },
-    "./position": {
-      "import": "./dist/esm/position.js",
-      "require": "./dist/cjs/position.js",
-      "types": "./dist/esm/position.d.ts"
-    },
-    "./string": {
-      "import": "./dist/esm/string.js",
-      "require": "./dist/cjs/string.js",
-      "types": "./dist/esm/string.d.ts"
-    },
-    "./type": {
-      "import": "./dist/esm/type.js",
-      "require": "./dist/cjs/type.js",
-      "types": "./dist/esm/type.d.ts"
-    }
-  }
+  ]
 }
