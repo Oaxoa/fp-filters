@@ -11,6 +11,7 @@
   },
   "include": [
     "./filters",
+    "./index.ts",
     "./utils.ts",
     "./utils.test.ts",
     "./jest.config.js",

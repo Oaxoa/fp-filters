@@ -1711,10 +1711,10 @@ for-each@^0.3.3:
   dependencies:
     is-callable "^1.1.3"
 
-fp-booleans@0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/fp-booleans/-/fp-booleans-0.5.1.tgz#788059f0ddd9562751098900cea255eb16bcafa9"
-  integrity sha512-EZkCE6+qSe9+uieJp6wvY8J73U+TpAvT9YbsMZMsujnlh1pvPcLYQWQkxHtA1kr31nDaKYppyiDO3sHrg4X8rQ==
+fp-booleans@0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/fp-booleans/-/fp-booleans-0.5.2.tgz#68f1d6521cee591438ce950c24bd7936ea056c71"
+  integrity sha512-H5FFrtD2zNKL1if70v6duGyOYlTS1XqhZANsVk90wrTn8M/LXk4pFRnEQN3MGfzfCXUmEU/ofUGku5wSXkbtfA==
 
 fs.realpath@^1.0.0:
   version "1.0.0"
