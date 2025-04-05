@@ -11,7 +11,10 @@ export default [
 	...tseslint.configs.recommended,
 	eslintConfigPrettier,
 	{
-		plugins: { import: PluginImport },
+		plugins: [
+			PluginImport,    // Use the imported PluginImport here
+			'tree-shaking',  // Add the tree-shaking plugin
+		],
 		rules: {
 			'import/no-unresolved': 'off',
 			'@typescript-eslint/ban-types': 'off',
