@@ -1,4 +1,4 @@
-import { THasLengthProperty } from './types';
+import { THasLengthProperty } from './types.js';
 
 /**
  * Argument has a maximum length of len

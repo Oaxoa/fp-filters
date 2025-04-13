@@ -1,8 +1,8 @@
-import { isEmpty } from './isEmpty';
-import { hasLength } from './hasLength';
-import { hasLengthMin } from './hasLengthMin';
-import { hasLengthMax } from './hasLengthMax';
-import { hasLengthBetween } from './hasLengthBetween';
+import { isEmpty } from './isEmpty.js';
+import { hasLength } from './hasLength.js';
+import { hasLengthMin } from './hasLengthMin.js';
+import { hasLengthMax } from './hasLengthMax.js';
+import { hasLengthBetween } from './hasLengthBetween.js';
 
 describe('length filters', () => {
 	const someInput = [[], [1], [1, 2], [1, 2, 3], '', 'a', 'ab', 'abc'];

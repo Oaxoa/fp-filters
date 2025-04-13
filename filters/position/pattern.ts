@@ -1,4 +1,4 @@
-import { none } from '../misc/none';
+import { none } from '../misc/none.js';
 
 /**
  * Allows to specify a pattern that is repeated. The elements are returned based on their index matching the pattern

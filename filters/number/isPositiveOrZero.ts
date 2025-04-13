@@ -1,4 +1,4 @@
-import { isGreaterOrEqualTo } from './isGreaterOrEqualTo';
+import { isGreaterOrEqualTo } from './isGreaterOrEqualTo.js';
 
 /**
  * Returns true if the number is positive or zero

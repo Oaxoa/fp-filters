@@ -1,6 +1,6 @@
-import { pattern } from './pattern';
-import { isEvenIndex } from './isEvenIndex';
-import { isEveryNthIndex } from './isEveryNthIndex';
+import { pattern } from './pattern.js';
+import { isEvenIndex } from './isEvenIndex.js';
+import { isEveryNthIndex } from './isEveryNthIndex.js';
 
 describe('position', () => {
 	const someNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

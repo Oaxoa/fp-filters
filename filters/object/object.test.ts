@@ -1,14 +1,14 @@
-import { hasProp } from './hasProp';
-import { hasProps } from './hasProps';
-import { isGreaterThan } from '../number/isGreaterThan';
-import { isLowerThan } from '../number/isLowerThan';
-import { hasSameProp } from './hasSameProp';
-import { hasSameProps } from './hasSameProps';
+import { hasProp } from './hasProp.js';
+import { hasProps } from './hasProps.js';
+import { isGreaterThan } from '../number/isGreaterThan.js';
+import { isLowerThan } from '../number/isLowerThan.js';
+import { hasSameProp } from './hasSameProp.js';
+import { hasSameProps } from './hasSameProps.js';
 import { and, or } from 'fp-booleans';
-import { isNumber } from '../type/isNumber';
-import { isOdd } from '../number/isOdd';
-import { isPositive } from '../number/isPositive';
-import { is } from '../misc/is';
+import { isNumber } from '../type/isNumber.js';
+import { isOdd } from '../number/isOdd.js';
+import { isPositive } from '../number/isPositive.js';
+import { is } from '../misc/is.js';
 
 describe('object filters', () => {
 	const someObjects = [{ a: 0, b: 1 }, { a: 5, b: 6 }, { a: 7, b: 6 }, { a: [1], c: 10 }, { d: 'hello' }];

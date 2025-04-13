@@ -1,5 +1,5 @@
-import { assignName } from '../../utils';
-import { hasLength } from './hasLength';
+import { assignName } from '../../utils.js';
+import { hasLength } from './hasLength.js';
 
 /**
  * Argument is empty

@@ -1,7 +1,7 @@
-import { TTypeMap } from './types';
-import { checkTypeOf } from './checkTypeOf';
-import { isInstanceOf } from './isInstanceOf';
-import { is } from '../misc/is';
+import { TTypeMap } from './types.js';
+import { checkTypeOf } from './checkTypeOf.js';
+import { isInstanceOf } from './isInstanceOf.js';
+import { is } from '../misc/is.js';
 
 export const typeChecks: Record<keyof TTypeMap, (arg: unknown) => boolean> = {
 	string: checkTypeOf('string'),

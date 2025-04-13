@@ -1,4 +1,4 @@
-import { isMultipleOf } from './isMultipleOf';
+import { isMultipleOf } from './isMultipleOf.js';
 
 /**
  * Returns true if the number is even

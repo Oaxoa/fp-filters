@@ -1,6 +1,6 @@
 import { and } from 'fp-booleans';
-import { isGreaterThan } from './isGreaterThan';
-import { isLowerThan } from './isLowerThan';
+import { isGreaterThan } from './isGreaterThan.js';
+import { isLowerThan } from './isLowerThan.js';
 
 /**
  * Returns true if the number is between a min/max (excluded) range

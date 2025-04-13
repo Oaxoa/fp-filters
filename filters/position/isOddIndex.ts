@@ -1,4 +1,4 @@
-import { pattern } from './pattern';
+import { pattern } from './pattern.js';
 
 /**
  * Returns elements with an odd index

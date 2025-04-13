@@ -1,9 +1,9 @@
-import { isOfType } from './isOfType';
-import { TTypeMap } from './types';
-import { isNotOfType } from './isNotOfType';
-import { isInstanceOf } from './isInstanceOf';
-import { isSameTypeAs } from './isSameTypeAs';
-import { isNotSameTypeAs } from './isNotSameTypeAs';
+import { isOfType } from './isOfType.js';
+import { TTypeMap } from './types.js';
+import { isNotOfType } from './isNotOfType.js';
+import { isInstanceOf } from './isInstanceOf.js';
+import { isSameTypeAs } from './isSameTypeAs.js';
+import { isNotSameTypeAs } from './isNotSameTypeAs.js';
 
 describe('type filters', () => {
 	type TTestEntryInput = number | string | boolean | unknown[] | object | undefined | null;

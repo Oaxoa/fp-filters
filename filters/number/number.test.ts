@@ -1,17 +1,17 @@
-import { isRound } from './isRound';
-import { isInteger } from './isInteger';
-import { isGreaterThan } from './isGreaterThan';
-import { isGreaterOrEqualTo } from './isGreaterOrEqualTo';
-import { isLowerThan } from './isLowerThan';
-import { isMultipleOf } from './isMultipleOf';
-import { isEven } from './isEven';
-import { isPositive } from './isPositive';
-import { isPositiveOrZero } from './isPositiveOrZero';
-import { isZero } from './isZero';
-import { isBetween } from './isBetween';
-import { isBetweenExcludingBoundaries } from './isBetweenExcludingBoundaries';
-import { isBetweenExcludingMin } from './isBetweenExcludingMin';
-import { isBetweenExcludingMax } from './isBetweenExcludingMax';
+import { isRound } from './isRound.js';
+import { isInteger } from './isInteger.js';
+import { isGreaterThan } from './isGreaterThan.js';
+import { isGreaterOrEqualTo } from './isGreaterOrEqualTo.js';
+import { isLowerThan } from './isLowerThan.js';
+import { isMultipleOf } from './isMultipleOf.js';
+import { isEven } from './isEven.js';
+import { isPositive } from './isPositive.js';
+import { isPositiveOrZero } from './isPositiveOrZero.js';
+import { isZero } from './isZero.js';
+import { isBetween } from './isBetween.js';
+import { isBetweenExcludingBoundaries } from './isBetweenExcludingBoundaries.js';
+import { isBetweenExcludingMin } from './isBetweenExcludingMin.js';
+import { isBetweenExcludingMax } from './isBetweenExcludingMax.js';
 
 describe('number filters', () => {
 	const someElements = [0, 1, 1.1, 1.9, -2, -2.9, 3.0, -4.0];

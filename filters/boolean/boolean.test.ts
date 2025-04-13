@@ -1,5 +1,5 @@
-import { isTrue } from './isTrue';
-import { isTruthy } from './isTruthy';
+import { isTrue } from './isTrue.js';
+import { isTruthy } from './isTruthy.js';
 
 describe('boolean', () => {
 	describe('isTrue', () => {

@@ -1,17 +1,17 @@
-import { matches } from './matches';
-import { doesNotMatch } from './doesNotMatch';
-import { startsWith } from './startsWith';
-import { endsWith } from './endsWith';
-import { includes } from './includes';
-import { isUpperCase } from './isUpperCase';
-import { isLowerCase } from './isLowerCase';
-import { isEmptyString } from './isEmptyString';
-import { isEmptyStringTrim } from './isEmptyStringTrim';
-import { isTrimmable } from './isTrimmable';
-import { isTrimmableStart } from './isTrimmableStart';
-import { isTrimmableEnd } from './isTrimmableEnd';
-import { isEmail } from './isEmail';
-import { isPalindrome } from './isPalindrome';
+import { matches } from './matches.js';
+import { doesNotMatch } from './doesNotMatch.js';
+import { startsWith } from './startsWith.js';
+import { endsWith } from './endsWith.js';
+import { includes } from './includes.js';
+import { isUpperCase } from './isUpperCase.js';
+import { isLowerCase } from './isLowerCase.js';
+import { isEmptyString } from './isEmptyString.js';
+import { isEmptyStringTrim } from './isEmptyStringTrim.js';
+import { isTrimmable } from './isTrimmable.js';
+import { isTrimmableStart } from './isTrimmableStart.js';
+import { isTrimmableEnd } from './isTrimmableEnd.js';
+import { isEmail } from './isEmail.js';
+import { isPalindrome } from './isPalindrome.js';
 
 describe('string filters', () => {
 	const someStrings = ['hello', 'hallo', 'hellscape'];

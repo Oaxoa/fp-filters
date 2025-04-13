@@ -1,5 +1,5 @@
 import { not } from 'fp-booleans';
-import { isIncludedIn } from './isIncludedIn';
+import { isIncludedIn } from './isIncludedIn.js';
 
 /**
  * Argument is not present in an array

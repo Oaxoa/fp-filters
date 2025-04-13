@@ -1,6 +1,6 @@
-import { isIncludedIn } from './isIncludedIn';
-import { filterElements } from './filterElements';
-import { isEven } from '../number/isEven';
+import { isIncludedIn } from './isIncludedIn.js';
+import { filterElements } from './filterElements.js';
+import { isEven } from '../number/isEven.js';
 
 describe('array', () => {
 	describe('filterElements', () => {

@@ -1,4 +1,4 @@
-import { hasProp } from './hasProp';
+import { hasProp } from './hasProp.js';
 import { not } from 'fp-booleans';
 
 /**

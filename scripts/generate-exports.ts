@@ -22,10 +22,10 @@ const buildExports = (dirPath: string, basePath = './'): Record<string, any> => 
 			const key = relativePath.replace(/\.ts$/, '').replace(/\\/g, '/'); // Adjust key for paths
 			return {
 				...acc,
-				[key]: {
-					import: `./dist/esm/${key}.js`,
-					require: `./dist/cjs/${key}.js`,
-					types: `./dist/esm/${key}.d.ts`,
+				[`./${key}.js`]: {
+					import: `./dist/esm/filters/${key}.js`,
+					require: `./dist/cjs/filters/${key}.js`,
+					types: `./dist/esm/filters/${key}.d.ts`,
 				},
 			};
 		}, {});

@@ -1,4 +1,4 @@
-import { isUndefined } from '../type/isUndefined';
+import { isUndefined } from '../type/isUndefined.js';
 
 /**
  * arg has the same value of the comparison object for the specified prop

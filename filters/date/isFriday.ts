@@ -1,3 +1,3 @@
-import { isDayOfTheWeek } from './isDayOfTheWeek';
+import { isDayOfTheWeek } from './isDayOfTheWeek.js';
 
 export const isFriday = isDayOfTheWeek('Friday');

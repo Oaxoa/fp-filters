@@ -1,4 +1,4 @@
-import { compareDates } from './compareDates';
-import { isGreaterThan } from '../number/isGreaterThan';
+import { compareDates } from './compareDates.js';
+import { isGreaterThan } from '../number/isGreaterThan.js';
 
 export const isFutureDate = compareDates(isGreaterThan);

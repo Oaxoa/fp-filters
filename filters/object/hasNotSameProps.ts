@@ -1,5 +1,5 @@
 import { not } from 'fp-booleans';
-import { hasSameProps } from './hasSameProps';
+import { hasSameProps } from './hasSameProps.js';
 
 /**
  * arg does not have the same value of the comparison object for all the specified props

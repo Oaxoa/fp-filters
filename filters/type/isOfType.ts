@@ -1,5 +1,5 @@
-import { TTypeMap } from './types';
-import { typeChecks } from './constants';
+import { TTypeMap } from './types.js';
+import { typeChecks } from './constants.js';
 
 export const isOfType =
 	<K extends keyof TTypeMap>(type: K) =>

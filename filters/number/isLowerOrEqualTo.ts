@@ -1,4 +1,4 @@
-import { isGreaterThan } from './isGreaterThan';
+import { isGreaterThan } from './isGreaterThan.js';
 import { not } from 'fp-booleans';
 
 /**

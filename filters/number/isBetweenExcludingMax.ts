@@ -1,5 +1,5 @@
-import { isGreaterOrEqualTo } from './isGreaterOrEqualTo';
-import { isLowerThan } from './isLowerThan';
+import { isGreaterOrEqualTo } from './isGreaterOrEqualTo.js';
+import { isLowerThan } from './isLowerThan.js';
 import { and } from 'fp-booleans';
 
 /**

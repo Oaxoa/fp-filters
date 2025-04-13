@@ -1,4 +1,4 @@
-import { stringMethodProxy } from './stringMethodProxy';
+import { stringMethodProxy } from './stringMethodProxy.js';
 
 /**
  * Returns true if the string starts with the specified substring

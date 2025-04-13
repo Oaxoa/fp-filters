@@ -1,5 +1,5 @@
 import { not } from 'fp-booleans';
-import { isEven } from './isEven';
+import { isEven } from './isEven.js';
 
 /**
  * Returns true if the number is odd

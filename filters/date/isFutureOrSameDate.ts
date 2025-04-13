@@ -1,4 +1,4 @@
-import { compareDates } from './compareDates';
-import { isGreaterOrEqualTo } from '../number/isGreaterOrEqualTo';
+import { compareDates } from './compareDates.js';
+import { isGreaterOrEqualTo } from '../number/isGreaterOrEqualTo.js';
 
 export const isFutureOrSameDate = compareDates(isGreaterOrEqualTo);

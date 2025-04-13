@@ -1,5 +1,5 @@
-import { assignName } from '../../utils';
-import { pattern } from './pattern';
+import { assignName } from '../../utils.js';
+import { pattern } from './pattern.js';
 
 /**
  * Returns elements with an even index

@@ -1,4 +1,4 @@
-import { hasSameProp } from './hasSameProp';
+import { hasSameProp } from './hasSameProp.js';
 
 /**
  * arg has the same value of the comparison object for all the specified props

@@ -1,4 +1,4 @@
-import { TDateEntity } from './types';
+import { TDateEntity } from './types.js';
 
 const sameEntityMethods: Record<TDateEntity, keyof Date> = {
 	year: 'getFullYear',

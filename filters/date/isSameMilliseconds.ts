@@ -1,3 +1,3 @@
-import { isSame } from './isSame';
+import { isSame } from './isSame.js';
 
 export const isSameMilliseconds = isSame('milliseconds');

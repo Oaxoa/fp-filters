@@ -1,5 +1,5 @@
 import { not } from 'fp-booleans';
-import { hasLengthMax } from './hasLengthMax';
+import { hasLengthMax } from './hasLengthMax.js';
 
 /**
  * Argument exceeds a maximum length of len

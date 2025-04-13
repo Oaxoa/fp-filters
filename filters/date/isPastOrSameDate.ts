@@ -1,4 +1,4 @@
-import { isLowerOrEqualTo } from '../number/isLowerOrEqualTo';
-import { compareDates } from './compareDates';
+import { isLowerOrEqualTo } from '../number/isLowerOrEqualTo.js';
+import { compareDates } from './compareDates.js';
 
 export const isPastOrSameDate = compareDates(isLowerOrEqualTo);

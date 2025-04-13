@@ -1,7 +1,7 @@
-import { none } from './none';
-import { is } from './is';
-import { isNot } from './isNot';
-import { all } from './all';
+import { none } from './none.js';
+import { is } from './is.js';
+import { isNot } from './isNot.js';
+import { all } from './all.js';
 
 describe('misc filters', () => {
 	const someElements = [1, 2, 3, 2, 'hello'];

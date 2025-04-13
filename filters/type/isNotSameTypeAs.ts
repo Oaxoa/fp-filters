@@ -1,5 +1,5 @@
-import { TTypeMap } from './types';
-import { isNotOfType } from './isNotOfType';
+import { TTypeMap } from './types.js';
+import { isNotOfType } from './isNotOfType.js';
 
 export const isNotSameTypeAs =
 	<T>(comparison: T) =>

@@ -1,5 +1,5 @@
-import { TTypeMap } from './types';
-import { isOfType } from './isOfType';
+import { TTypeMap } from './types.js';
+import { isOfType } from './isOfType.js';
 
 export const isSameTypeAs =
 	<T>(comparison: T) =>

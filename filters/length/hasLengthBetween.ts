@@ -1,6 +1,6 @@
 import { and } from 'fp-booleans';
-import { hasLengthMin } from './hasLengthMin';
-import { hasLengthMax } from './hasLengthMax';
+import { hasLengthMin } from './hasLengthMin.js';
+import { hasLengthMax } from './hasLengthMax.js';
 
 /**
  * Argument has a length between min and max

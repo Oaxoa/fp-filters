@@ -1,5 +1,5 @@
 import { not } from 'fp-booleans';
-import { matches } from './matches';
+import { matches } from './matches.js';
 
 /**
  * Returns false if the string matches the specified regexp

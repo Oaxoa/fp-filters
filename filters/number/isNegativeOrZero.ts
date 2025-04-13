@@ -1,4 +1,4 @@
-import { isPositive } from './isPositive';
+import { isPositive } from './isPositive.js';
 import { not } from 'fp-booleans';
 
 /**
