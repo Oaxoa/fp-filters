@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import PluginImport from 'eslint-plugin-import';
+import treeShaking from 'eslint-plugin-tree-shaking';
 
 export default [
 	{
@@ -11,10 +12,10 @@ export default [
 	...tseslint.configs.recommended,
 	eslintConfigPrettier,
 	{
-		plugins: [
-			PluginImport,    // Use the imported PluginImport here
-			'tree-shaking',  // Add the tree-shaking plugin
-		],
+		plugins: {
+			import: PluginImport,        // map the name "import" to the imported module
+			'tree-shaking': treeShaking,
+		},
 		rules: {
 			'import/no-unresolved': 'off',
 			'@typescript-eslint/ban-types': 'off',

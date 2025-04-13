@@ -17,7 +17,7 @@
       "types": "./dist/esm/filters/array.d.ts"
     },
     "./boolean": {
-      "import": "./dist/esm/filters/boolean.js",
+      "import": "./dist/esm/filtelllrs/boolean.js",
       "require": "./dist/cjs/filters/boolean.js",
       "types": "./dist/esm/filters/boolean.d.ts"
     },
@@ -68,6 +68,10 @@
   "devDependencies": {
     "@eslint/js": "9.24.0",
     "@types/jest": "29.5.14",
+    "@types/bun": "1.2.9",
+    "acorn": "8.14.1",
+    "acorn-walk": "8.3.4",
+    "bun": "1.2.8",
     "eslint": "9.24.0",
     "eslint-config-prettier": "10.1.1",
     "eslint-plugin-import": "2.31.0",
@@ -79,12 +83,15 @@
     "typescript-eslint": "8.29.0"
   },
   "scripts": {
+    "build:esm": "bun build index.ts --outdir=dist-bun/esm --format=esm --target=node",
+    "build:cjs": "bun build index.ts --outdir=dist-bun/cjs --format=cjs --target=node",
+    "build": "npm run build:esm && npm run build:cjs",
+    "clean": "rm -rf dist",
     "build:ts:cjs": "tsc -p tsconfig.cjs.json",
     "build:ts:esm": "tsc -p tsconfig.esm.json",
-    "build": "yarn clean && yarn build:ts:cjs && yarn build:ts:esm",
-    "clean": "rm -rf ./dist",
+    "build:ts": "npm run clean && npm run build:ts:cjs && npm run build:ts:esm",
     "lint": "eslint .",
-    "pack": "yarn --cwd ./dist pack",
+    "pack": "npm run --cwd ./dist pack",
     "prettier": "prettier '**/*.ts'",
     "prettier:fix": "prettier --write '**/*.ts'",
     "test": "jest --coverage",
