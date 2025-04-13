@@ -5,7 +5,8 @@ https://github.com/Oaxoa/fp-filters
 
 # fp-filters
 
-A collection of common filter functions that are written (and can be used) in a functional programming style.
+A curated collection of common-use filter functions that are written (and can be used) in a functional programming
+style.
 
 fp-filters functions are:
 
@@ -16,6 +17,8 @@ fp-filters functions are:
 1. grouped by semantics
 1. tree-shakeable
 1. 100% tested by design
+1. higher-order / partially applicable
+1. fully typed
 
 ### Why
 
@@ -24,7 +27,46 @@ So that you will probably never write another filter function 🚀!
 
 ## Examples
 
-#### values and numbers examples:
+#### Array
+
+```js
+// JS
+const allergenIngredients = ingredients.filter((arg) => allergens.includes(arg));
+// fp-filters
+const allergenIngredients = ingredients.filter(isIncludedIn(allergens));
+```
+
+#### Boolean
+
+```js
+// JS
+array.filter((arg) => arg === true);
+// fp-filters
+array.filter(isTrue);
+```
+
+#### Date
+
+```js
+// JS
+array.filter((date) => {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+});
+// fp-filters
+array.filter(isWeekend);
+```
+
+#### Length
+
+```js
+// JS
+array.filter((arg) => arg.length > 0);
+// fp-filters
+array.filter(isNotEmpty);
+```
+
+#### Misc
 
 ```js
 // JS
@@ -33,9 +75,11 @@ ids.filter((id) => id === currentUserId);
 ids.filter(is(currentUserId));
 ```
 
+#### Number
+
 ```js
 // JS
-scores.filter((element) => element !== 0);
+scores.filter((value) => value !== 0);
 // fp-filters
 scores.filter(isNotZero);
 ```
@@ -54,15 +98,7 @@ array.filter((arg) => arg >= 10 && arg <= 50);
 array.filter(isBetween(10, 50));
 ```
 
-#### collections examples:
-
-```js
-const allergens = ['crustaceans', 'gluten', 'mushrooms', 'peanuts',];
-// JS
-const allergenIngredients = ingredients.filter((arg) => allergens.includes(arg));
-// fp-filters
-const allergenIngredients = ingredients.filter(isIncludedIn(allergens));
-```
+#### Object
 
 ```js
 // JS
@@ -85,32 +121,7 @@ array.filter((obj) => obj.id === someOtherObj.id && obj.brand === someOtherObj.b
 array.filter(hasSameProps(someOtherObj, ['id', 'brand']));
 ```
 
-```js
-// JS
-array.filter((arg) => arg.length > 0);
-// fp-filters
-array.filter(isNotEmpty);
-```
-
-#### types examples:
-
-```js
-// JS
-array.filter((arg) => arg !== null && arg !== undefined);
-// fp-filters
-array.filter(isNotNil);
-```
-
-```js
-// JS
-array.filter((arg) => typeof arg === 'boolean');
-// fp-filters
-array.filter(isBoolean);
-// do not be tricked by `array.filter(Boolean);`. It is different as 
-// it casts the content and then evaluate its truthyness
-```
-
-#### position examples:
+#### Position
 
 ```js
 // JS
@@ -126,6 +137,47 @@ array.filter((arg, index) => index % 3 === 1);
 array.filter(isEveryNthIndex(3, 1));
 ```
 
+#### String
+
+```js
+// JS
+array.filter((arg) => arg === '');
+// fp-filters
+array.filter(isEmptyString);
+```
+
+```js
+// JS
+array.filter((arg: string) => {
+  for (let i = 0; i < arg.length / 2; i++) {
+    if (arg[i] !== arg[arg.length - i - 1]) {
+      return false;
+    }
+  }
+  return true;
+});
+// fp-filters
+array.filter(isPalindrome);
+```
+
+#### Type
+
+```js
+// JS
+array.filter((arg) => arg !== undefined);
+// fp-filters
+array.filter(isNotUndefined);
+```
+
+```js
+// JS
+array.filter((arg) => typeof arg === 'boolean');
+// fp-filters
+array.filter(isBoolean);
+// do not be tricked by `array.filter(Boolean);`. It is different as 
+// it casts the content and then evaluate its truthyness
+```
+
 ## Negate or combine filters
 
 Most of the functions include aliases for their negated versions (
@@ -139,9 +191,6 @@ array.filter(isNot(5))
 array.filter(isBetween(5, 10))
 array.filter(isNotBetween(5, 10))
 
-array.filter(isNil)
-array.filter(isNotNil)
-
 array.filter(isEmpty)
 array.filter(isNotEmpty)
 
@@ -151,14 +200,19 @@ array.filter(isNotInstanceOf(SomeClass));
 
 but **you can make your own**.
 
-> _fp-filters_ leaverages _fp-booleans_ 's very powerful functions to combine or negate functions
+> _fp-filters_ leaverages _fp-booleans_'s very powerful functions to combine or negate functions
 
 #### Some examples:
 
 ```js
-array.filter(not(is(5)));
-array.filter(and(isGreaterOrEqualTo(MIN_PRICE), not(isRound)));
-array.filter(or(is('admin'), and(startsWith('user_'), isLowerCase)));
+const isNot = not(is);
+array.filter(isNot(5));
+
+const canBeDiscounted = (minPrice) => and(isGreaterOrEqualTo(minPrice), not(isRound));
+array.filter(canBeDiscounted(10));
+
+const isValidAdmin = or(is('admin'), and(startsWith('user_'), isLowerCase))
+array.filter(isValidAdmin);
 ```
 
 ### Getting started
