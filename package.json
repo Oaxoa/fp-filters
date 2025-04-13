@@ -11,55 +11,650 @@
     "assets/"
   ],
   "exports": {
-    "./array": {
-      "import": "./dist/esm/filters/array.js",
-      "require": "./dist/cjs/filters/array.js",
-      "types": "./dist/esm/filters/array.d.ts"
+    "misc/all": {
+      "import": "./dist/esm/misc/all.js",
+      "require": "./dist/cjs/misc/all.js",
+      "types": "./dist/esm/misc/all.d.ts"
     },
-    "./boolean": {
-      "import": "./dist/esm/filtelllrs/boolean.js",
-      "require": "./dist/cjs/filters/boolean.js",
-      "types": "./dist/esm/filters/boolean.d.ts"
+    "misc/is": {
+      "import": "./dist/esm/misc/is.js",
+      "require": "./dist/cjs/misc/is.js",
+      "types": "./dist/esm/misc/is.d.ts"
     },
-    "./date": {
-      "import": "./dist/esm/filters/date.js",
-      "require": "./dist/cjs/filters/date.js",
-      "types": "./dist/esm/filters/date.d.ts"
+    "misc/none": {
+      "import": "./dist/esm/misc/none.js",
+      "require": "./dist/cjs/misc/none.js",
+      "types": "./dist/esm/misc/none.d.ts"
     },
-    "./length": {
-      "import": "./dist/esm/filters/length.js",
-      "require": "./dist/cjs/filters/length.js",
-      "types": "./dist/esm/filters/length.d.ts"
+    "misc/isNot": {
+      "import": "./dist/esm/misc/isNot.js",
+      "require": "./dist/cjs/misc/isNot.js",
+      "types": "./dist/esm/misc/isNot.d.ts"
     },
-    "./misc": {
-      "import": "./dist/esm/filters/misc.js",
-      "require": "./dist/cjs/filters/misc.js",
-      "types": "./dist/esm/filters/misc.d.ts"
+    "array/isNotIncludedIn": {
+      "import": "./dist/esm/array/isNotIncludedIn.js",
+      "require": "./dist/cjs/array/isNotIncludedIn.js",
+      "types": "./dist/esm/array/isNotIncludedIn.d.ts"
     },
-    "./number": {
-      "import": "./dist/esm/filters/number.js",
-      "require": "./dist/cjs/filters/number.js",
-      "types": "./dist/esm/filters/number.d.ts"
+    "array/isIncludedIn": {
+      "import": "./dist/esm/array/isIncludedIn.js",
+      "require": "./dist/cjs/array/isIncludedIn.js",
+      "types": "./dist/esm/array/isIncludedIn.d.ts"
     },
-    "./object": {
-      "import": "./dist/esm/filters/object.js",
-      "require": "./dist/cjs/filters/object.js",
-      "types": "./dist/esm/filters/object.d.ts"
+    "array/filterElements": {
+      "import": "./dist/esm/array/filterElements.js",
+      "require": "./dist/cjs/array/filterElements.js",
+      "types": "./dist/esm/array/filterElements.d.ts"
     },
-    "./position": {
-      "import": "./dist/esm/filters/position.js",
-      "require": "./dist/cjs/filters/position.js",
-      "types": "./dist/esm/filters/position.d.ts"
+    "position/isOddIndex": {
+      "import": "./dist/esm/position/isOddIndex.js",
+      "require": "./dist/cjs/position/isOddIndex.js",
+      "types": "./dist/esm/position/isOddIndex.d.ts"
     },
-    "./string": {
-      "import": "./dist/esm/filters/string.js",
-      "require": "./dist/cjs/filters/string.js",
-      "types": "./dist/esm/filters/string.d.ts"
+    "position/pattern": {
+      "import": "./dist/esm/position/pattern.js",
+      "require": "./dist/cjs/position/pattern.js",
+      "types": "./dist/esm/position/pattern.d.ts"
     },
-    "./type": {
-      "import": "./dist/esm/filters/type.js",
-      "require": "./dist/cjs/filters/type.js",
-      "types": "./dist/esm/filters/type.d.ts"
+    "position/isEveryNthIndex": {
+      "import": "./dist/esm/position/isEveryNthIndex.js",
+      "require": "./dist/cjs/position/isEveryNthIndex.js",
+      "types": "./dist/esm/position/isEveryNthIndex.d.ts"
+    },
+    "position/isEvenIndex": {
+      "import": "./dist/esm/position/isEvenIndex.js",
+      "require": "./dist/cjs/position/isEvenIndex.js",
+      "types": "./dist/esm/position/isEvenIndex.d.ts"
+    },
+    "date/isSameYearMonthDayHoursMinutes": {
+      "import": "./dist/esm/date/isSameYearMonthDayHoursMinutes.js",
+      "require": "./dist/cjs/date/isSameYearMonthDayHoursMinutes.js",
+      "types": "./dist/esm/date/isSameYearMonthDayHoursMinutes.d.ts"
+    },
+    "date/isSunday": {
+      "import": "./dist/esm/date/isSunday.js",
+      "require": "./dist/cjs/date/isSunday.js",
+      "types": "./dist/esm/date/isSunday.d.ts"
+    },
+    "date/isSameMonthDay": {
+      "import": "./dist/esm/date/isSameMonthDay.js",
+      "require": "./dist/cjs/date/isSameMonthDay.js",
+      "types": "./dist/esm/date/isSameMonthDay.d.ts"
+    },
+    "date/isSaturday": {
+      "import": "./dist/esm/date/isSaturday.js",
+      "require": "./dist/cjs/date/isSaturday.js",
+      "types": "./dist/esm/date/isSaturday.d.ts"
+    },
+    "date/isSameYearMonthDayHours": {
+      "import": "./dist/esm/date/isSameYearMonthDayHours.js",
+      "require": "./dist/cjs/date/isSameYearMonthDayHours.js",
+      "types": "./dist/esm/date/isSameYearMonthDayHours.d.ts"
+    },
+    "date/isSameYearMonthDay": {
+      "import": "./dist/esm/date/isSameYearMonthDay.js",
+      "require": "./dist/cjs/date/isSameYearMonthDay.js",
+      "types": "./dist/esm/date/isSameYearMonthDay.d.ts"
+    },
+    "date/isTuesday": {
+      "import": "./dist/esm/date/isTuesday.js",
+      "require": "./dist/cjs/date/isTuesday.js",
+      "types": "./dist/esm/date/isTuesday.d.ts"
+    },
+    "date/isSameMonth": {
+      "import": "./dist/esm/date/isSameMonth.js",
+      "require": "./dist/cjs/date/isSameMonth.js",
+      "types": "./dist/esm/date/isSameMonth.d.ts"
+    },
+    "date/isFutureDate": {
+      "import": "./dist/esm/date/isFutureDate.js",
+      "require": "./dist/cjs/date/isFutureDate.js",
+      "types": "./dist/esm/date/isFutureDate.d.ts"
+    },
+    "date/isWednesday": {
+      "import": "./dist/esm/date/isWednesday.js",
+      "require": "./dist/cjs/date/isWednesday.js",
+      "types": "./dist/esm/date/isWednesday.d.ts"
+    },
+    "date/isSameYear": {
+      "import": "./dist/esm/date/isSameYear.js",
+      "require": "./dist/cjs/date/isSameYear.js",
+      "types": "./dist/esm/date/isSameYear.d.ts"
+    },
+    "date/isSame": {
+      "import": "./dist/esm/date/isSame.js",
+      "require": "./dist/cjs/date/isSame.js",
+      "types": "./dist/esm/date/isSame.d.ts"
+    },
+    "date/isSameHoursMinutes": {
+      "import": "./dist/esm/date/isSameHoursMinutes.js",
+      "require": "./dist/cjs/date/isSameHoursMinutes.js",
+      "types": "./dist/esm/date/isSameHoursMinutes.d.ts"
+    },
+    "date/isMonday": {
+      "import": "./dist/esm/date/isMonday.js",
+      "require": "./dist/cjs/date/isMonday.js",
+      "types": "./dist/esm/date/isMonday.d.ts"
+    },
+    "date/isPastOrSameDate": {
+      "import": "./dist/esm/date/isPastOrSameDate.js",
+      "require": "./dist/cjs/date/isPastOrSameDate.js",
+      "types": "./dist/esm/date/isPastOrSameDate.d.ts"
+    },
+    "date/isThursday": {
+      "import": "./dist/esm/date/isThursday.js",
+      "require": "./dist/cjs/date/isThursday.js",
+      "types": "./dist/esm/date/isThursday.d.ts"
+    },
+    "date/compareDates": {
+      "import": "./dist/esm/date/compareDates.js",
+      "require": "./dist/cjs/date/compareDates.js",
+      "types": "./dist/esm/date/compareDates.d.ts"
+    },
+    "date/isLeapYear": {
+      "import": "./dist/esm/date/isLeapYear.js",
+      "require": "./dist/cjs/date/isLeapYear.js",
+      "types": "./dist/esm/date/isLeapYear.d.ts"
+    },
+    "date/types": {
+      "import": "./dist/esm/date/types.js",
+      "require": "./dist/cjs/date/types.js",
+      "types": "./dist/esm/date/types.d.ts"
+    },
+    "date/isSameMinutes": {
+      "import": "./dist/esm/date/isSameMinutes.js",
+      "require": "./dist/cjs/date/isSameMinutes.js",
+      "types": "./dist/esm/date/isSameMinutes.d.ts"
+    },
+    "date/isDayOfTheWeek": {
+      "import": "./dist/esm/date/isDayOfTheWeek.js",
+      "require": "./dist/cjs/date/isDayOfTheWeek.js",
+      "types": "./dist/esm/date/isDayOfTheWeek.d.ts"
+    },
+    "date/isSameDate": {
+      "import": "./dist/esm/date/isSameDate.js",
+      "require": "./dist/cjs/date/isSameDate.js",
+      "types": "./dist/esm/date/isSameDate.d.ts"
+    },
+    "date/isSameDayOfTheWeek": {
+      "import": "./dist/esm/date/isSameDayOfTheWeek.js",
+      "require": "./dist/cjs/date/isSameDayOfTheWeek.js",
+      "types": "./dist/esm/date/isSameDayOfTheWeek.d.ts"
+    },
+    "date/isFriday": {
+      "import": "./dist/esm/date/isFriday.js",
+      "require": "./dist/cjs/date/isFriday.js",
+      "types": "./dist/esm/date/isFriday.d.ts"
+    },
+    "date/isSameHours": {
+      "import": "./dist/esm/date/isSameHours.js",
+      "require": "./dist/cjs/date/isSameHours.js",
+      "types": "./dist/esm/date/isSameHours.d.ts"
+    },
+    "date/isSameMilliseconds": {
+      "import": "./dist/esm/date/isSameMilliseconds.js",
+      "require": "./dist/cjs/date/isSameMilliseconds.js",
+      "types": "./dist/esm/date/isSameMilliseconds.d.ts"
+    },
+    "date/isWeekend": {
+      "import": "./dist/esm/date/isWeekend.js",
+      "require": "./dist/cjs/date/isWeekend.js",
+      "types": "./dist/esm/date/isWeekend.d.ts"
+    },
+    "date/isSameYearMonth": {
+      "import": "./dist/esm/date/isSameYearMonth.js",
+      "require": "./dist/cjs/date/isSameYearMonth.js",
+      "types": "./dist/esm/date/isSameYearMonth.d.ts"
+    },
+    "date/isSameDay": {
+      "import": "./dist/esm/date/isSameDay.js",
+      "require": "./dist/cjs/date/isSameDay.js",
+      "types": "./dist/esm/date/isSameDay.d.ts"
+    },
+    "date/isPastDate": {
+      "import": "./dist/esm/date/isPastDate.js",
+      "require": "./dist/cjs/date/isPastDate.js",
+      "types": "./dist/esm/date/isPastDate.d.ts"
+    },
+    "date/isFutureOrSameDate": {
+      "import": "./dist/esm/date/isFutureOrSameDate.js",
+      "require": "./dist/cjs/date/isFutureOrSameDate.js",
+      "types": "./dist/esm/date/isFutureOrSameDate.d.ts"
+    },
+    "date/isSameYearToDate": {
+      "import": "./dist/esm/date/isSameYearToDate.js",
+      "require": "./dist/cjs/date/isSameYearToDate.js",
+      "types": "./dist/esm/date/isSameYearToDate.d.ts"
+    },
+    "date/isWorkingWeek": {
+      "import": "./dist/esm/date/isWorkingWeek.js",
+      "require": "./dist/cjs/date/isWorkingWeek.js",
+      "types": "./dist/esm/date/isWorkingWeek.d.ts"
+    },
+    "date/isBetweenDates": {
+      "import": "./dist/esm/date/isBetweenDates.js",
+      "require": "./dist/cjs/date/isBetweenDates.js",
+      "types": "./dist/esm/date/isBetweenDates.d.ts"
+    },
+    "length/hasNotLength": {
+      "import": "./dist/esm/length/hasNotLength.js",
+      "require": "./dist/cjs/length/hasNotLength.js",
+      "types": "./dist/esm/length/hasNotLength.d.ts"
+    },
+    "length/hasNotLengthBetween": {
+      "import": "./dist/esm/length/hasNotLengthBetween.js",
+      "require": "./dist/cjs/length/hasNotLengthBetween.js",
+      "types": "./dist/esm/length/hasNotLengthBetween.d.ts"
+    },
+    "length/hasNotLengthMin": {
+      "import": "./dist/esm/length/hasNotLengthMin.js",
+      "require": "./dist/cjs/length/hasNotLengthMin.js",
+      "types": "./dist/esm/length/hasNotLengthMin.d.ts"
+    },
+    "length/hasLengthMin": {
+      "import": "./dist/esm/length/hasLengthMin.js",
+      "require": "./dist/cjs/length/hasLengthMin.js",
+      "types": "./dist/esm/length/hasLengthMin.d.ts"
+    },
+    "length/hasLengthBetween": {
+      "import": "./dist/esm/length/hasLengthBetween.js",
+      "require": "./dist/cjs/length/hasLengthBetween.js",
+      "types": "./dist/esm/length/hasLengthBetween.d.ts"
+    },
+    "length/isNotEmpty": {
+      "import": "./dist/esm/length/isNotEmpty.js",
+      "require": "./dist/cjs/length/isNotEmpty.js",
+      "types": "./dist/esm/length/isNotEmpty.d.ts"
+    },
+    "length/hasLength": {
+      "import": "./dist/esm/length/hasLength.js",
+      "require": "./dist/cjs/length/hasLength.js",
+      "types": "./dist/esm/length/hasLength.d.ts"
+    },
+    "length/types": {
+      "import": "./dist/esm/length/types.js",
+      "require": "./dist/cjs/length/types.js",
+      "types": "./dist/esm/length/types.d.ts"
+    },
+    "length/hasLengthMax": {
+      "import": "./dist/esm/length/hasLengthMax.js",
+      "require": "./dist/cjs/length/hasLengthMax.js",
+      "types": "./dist/esm/length/hasLengthMax.d.ts"
+    },
+    "length/hasNotLengthMax": {
+      "import": "./dist/esm/length/hasNotLengthMax.js",
+      "require": "./dist/cjs/length/hasNotLengthMax.js",
+      "types": "./dist/esm/length/hasNotLengthMax.d.ts"
+    },
+    "length/isEmpty": {
+      "import": "./dist/esm/length/isEmpty.js",
+      "require": "./dist/cjs/length/isEmpty.js",
+      "types": "./dist/esm/length/isEmpty.d.ts"
+    },
+    "number/isNotZero": {
+      "import": "./dist/esm/number/isNotZero.js",
+      "require": "./dist/cjs/number/isNotZero.js",
+      "types": "./dist/esm/number/isNotZero.d.ts"
+    },
+    "number/isRound": {
+      "import": "./dist/esm/number/isRound.js",
+      "require": "./dist/cjs/number/isRound.js",
+      "types": "./dist/esm/number/isRound.d.ts"
+    },
+    "number/isBetweenExcludingMax": {
+      "import": "./dist/esm/number/isBetweenExcludingMax.js",
+      "require": "./dist/cjs/number/isBetweenExcludingMax.js",
+      "types": "./dist/esm/number/isBetweenExcludingMax.d.ts"
+    },
+    "number/isGreaterThan": {
+      "import": "./dist/esm/number/isGreaterThan.js",
+      "require": "./dist/cjs/number/isGreaterThan.js",
+      "types": "./dist/esm/number/isGreaterThan.d.ts"
+    },
+    "number/isGreaterOrEqualTo": {
+      "import": "./dist/esm/number/isGreaterOrEqualTo.js",
+      "require": "./dist/cjs/number/isGreaterOrEqualTo.js",
+      "types": "./dist/esm/number/isGreaterOrEqualTo.d.ts"
+    },
+    "number/isPositiveOrZero": {
+      "import": "./dist/esm/number/isPositiveOrZero.js",
+      "require": "./dist/cjs/number/isPositiveOrZero.js",
+      "types": "./dist/esm/number/isPositiveOrZero.d.ts"
+    },
+    "number/isLowerOrEqualTo": {
+      "import": "./dist/esm/number/isLowerOrEqualTo.js",
+      "require": "./dist/cjs/number/isLowerOrEqualTo.js",
+      "types": "./dist/esm/number/isLowerOrEqualTo.d.ts"
+    },
+    "number/isNotNaN": {
+      "import": "./dist/esm/number/isNotNaN.js",
+      "require": "./dist/cjs/number/isNotNaN.js",
+      "types": "./dist/esm/number/isNotNaN.d.ts"
+    },
+    "number/isOdd": {
+      "import": "./dist/esm/number/isOdd.js",
+      "require": "./dist/cjs/number/isOdd.js",
+      "types": "./dist/esm/number/isOdd.d.ts"
+    },
+    "number/isNegative": {
+      "import": "./dist/esm/number/isNegative.js",
+      "require": "./dist/cjs/number/isNegative.js",
+      "types": "./dist/esm/number/isNegative.d.ts"
+    },
+    "number/isEven": {
+      "import": "./dist/esm/number/isEven.js",
+      "require": "./dist/cjs/number/isEven.js",
+      "types": "./dist/esm/number/isEven.d.ts"
+    },
+    "number/isBetween": {
+      "import": "./dist/esm/number/isBetween.js",
+      "require": "./dist/cjs/number/isBetween.js",
+      "types": "./dist/esm/number/isBetween.d.ts"
+    },
+    "number/isLowerThan": {
+      "import": "./dist/esm/number/isLowerThan.js",
+      "require": "./dist/cjs/number/isLowerThan.js",
+      "types": "./dist/esm/number/isLowerThan.d.ts"
+    },
+    "number/isBetweenExcludingBoundaries": {
+      "import": "./dist/esm/number/isBetweenExcludingBoundaries.js",
+      "require": "./dist/cjs/number/isBetweenExcludingBoundaries.js",
+      "types": "./dist/esm/number/isBetweenExcludingBoundaries.d.ts"
+    },
+    "number/isInteger": {
+      "import": "./dist/esm/number/isInteger.js",
+      "require": "./dist/cjs/number/isInteger.js",
+      "types": "./dist/esm/number/isInteger.d.ts"
+    },
+    "number/isBetweenExcludingMin": {
+      "import": "./dist/esm/number/isBetweenExcludingMin.js",
+      "require": "./dist/cjs/number/isBetweenExcludingMin.js",
+      "types": "./dist/esm/number/isBetweenExcludingMin.d.ts"
+    },
+    "number/isZero": {
+      "import": "./dist/esm/number/isZero.js",
+      "require": "./dist/cjs/number/isZero.js",
+      "types": "./dist/esm/number/isZero.d.ts"
+    },
+    "number/isMultipleOf": {
+      "import": "./dist/esm/number/isMultipleOf.js",
+      "require": "./dist/cjs/number/isMultipleOf.js",
+      "types": "./dist/esm/number/isMultipleOf.d.ts"
+    },
+    "number/isPositive": {
+      "import": "./dist/esm/number/isPositive.js",
+      "require": "./dist/cjs/number/isPositive.js",
+      "types": "./dist/esm/number/isPositive.d.ts"
+    },
+    "number/isNegativeOrZero": {
+      "import": "./dist/esm/number/isNegativeOrZero.js",
+      "require": "./dist/cjs/number/isNegativeOrZero.js",
+      "types": "./dist/esm/number/isNegativeOrZero.d.ts"
+    },
+    "type/isObject": {
+      "import": "./dist/esm/type/isObject.js",
+      "require": "./dist/cjs/type/isObject.js",
+      "types": "./dist/esm/type/isObject.d.ts"
+    },
+    "type/isNotNull": {
+      "import": "./dist/esm/type/isNotNull.js",
+      "require": "./dist/cjs/type/isNotNull.js",
+      "types": "./dist/esm/type/isNotNull.d.ts"
+    },
+    "type/isOfType": {
+      "import": "./dist/esm/type/isOfType.js",
+      "require": "./dist/cjs/type/isOfType.js",
+      "types": "./dist/esm/type/isOfType.d.ts"
+    },
+    "type/isNotString": {
+      "import": "./dist/esm/type/isNotString.js",
+      "require": "./dist/cjs/type/isNotString.js",
+      "types": "./dist/esm/type/isNotString.d.ts"
+    },
+    "type/isDate": {
+      "import": "./dist/esm/type/isDate.js",
+      "require": "./dist/cjs/type/isDate.js",
+      "types": "./dist/esm/type/isDate.d.ts"
+    },
+    "type/isSameTypeAs": {
+      "import": "./dist/esm/type/isSameTypeAs.js",
+      "require": "./dist/cjs/type/isSameTypeAs.js",
+      "types": "./dist/esm/type/isSameTypeAs.d.ts"
+    },
+    "type/isBoolean": {
+      "import": "./dist/esm/type/isBoolean.js",
+      "require": "./dist/cjs/type/isBoolean.js",
+      "types": "./dist/esm/type/isBoolean.d.ts"
+    },
+    "type/checkTypeOf": {
+      "import": "./dist/esm/type/checkTypeOf.js",
+      "require": "./dist/cjs/type/checkTypeOf.js",
+      "types": "./dist/esm/type/checkTypeOf.d.ts"
+    },
+    "type/isNotUndefined": {
+      "import": "./dist/esm/type/isNotUndefined.js",
+      "require": "./dist/cjs/type/isNotUndefined.js",
+      "types": "./dist/esm/type/isNotUndefined.d.ts"
+    },
+    "type/isNumber": {
+      "import": "./dist/esm/type/isNumber.js",
+      "require": "./dist/cjs/type/isNumber.js",
+      "types": "./dist/esm/type/isNumber.d.ts"
+    },
+    "type/isArray": {
+      "import": "./dist/esm/type/isArray.js",
+      "require": "./dist/cjs/type/isArray.js",
+      "types": "./dist/esm/type/isArray.d.ts"
+    },
+    "type/types": {
+      "import": "./dist/esm/type/types.js",
+      "require": "./dist/cjs/type/types.js",
+      "types": "./dist/esm/type/types.d.ts"
+    },
+    "type/constants": {
+      "import": "./dist/esm/type/constants.js",
+      "require": "./dist/cjs/type/constants.js",
+      "types": "./dist/esm/type/constants.d.ts"
+    },
+    "type/isNotBoolean": {
+      "import": "./dist/esm/type/isNotBoolean.js",
+      "require": "./dist/cjs/type/isNotBoolean.js",
+      "types": "./dist/esm/type/isNotBoolean.d.ts"
+    },
+    "type/isNotNumber": {
+      "import": "./dist/esm/type/isNotNumber.js",
+      "require": "./dist/cjs/type/isNotNumber.js",
+      "types": "./dist/esm/type/isNotNumber.d.ts"
+    },
+    "type/isNotSameTypeAs": {
+      "import": "./dist/esm/type/isNotSameTypeAs.js",
+      "require": "./dist/cjs/type/isNotSameTypeAs.js",
+      "types": "./dist/esm/type/isNotSameTypeAs.d.ts"
+    },
+    "type/isNotDate": {
+      "import": "./dist/esm/type/isNotDate.js",
+      "require": "./dist/cjs/type/isNotDate.js",
+      "types": "./dist/esm/type/isNotDate.d.ts"
+    },
+    "type/isNotObject": {
+      "import": "./dist/esm/type/isNotObject.js",
+      "require": "./dist/cjs/type/isNotObject.js",
+      "types": "./dist/esm/type/isNotObject.d.ts"
+    },
+    "type/isNotArray": {
+      "import": "./dist/esm/type/isNotArray.js",
+      "require": "./dist/cjs/type/isNotArray.js",
+      "types": "./dist/esm/type/isNotArray.d.ts"
+    },
+    "type/isInstanceOf": {
+      "import": "./dist/esm/type/isInstanceOf.js",
+      "require": "./dist/cjs/type/isInstanceOf.js",
+      "types": "./dist/esm/type/isInstanceOf.d.ts"
+    },
+    "type/isUndefined": {
+      "import": "./dist/esm/type/isUndefined.js",
+      "require": "./dist/cjs/type/isUndefined.js",
+      "types": "./dist/esm/type/isUndefined.d.ts"
+    },
+    "type/isNull": {
+      "import": "./dist/esm/type/isNull.js",
+      "require": "./dist/cjs/type/isNull.js",
+      "types": "./dist/esm/type/isNull.d.ts"
+    },
+    "type/isNotOfType": {
+      "import": "./dist/esm/type/isNotOfType.js",
+      "require": "./dist/cjs/type/isNotOfType.js",
+      "types": "./dist/esm/type/isNotOfType.d.ts"
+    },
+    "type/isString": {
+      "import": "./dist/esm/type/isString.js",
+      "require": "./dist/cjs/type/isString.js",
+      "types": "./dist/esm/type/isString.d.ts"
+    },
+    "object/hasNotSameProp": {
+      "import": "./dist/esm/object/hasNotSameProp.js",
+      "require": "./dist/cjs/object/hasNotSameProp.js",
+      "types": "./dist/esm/object/hasNotSameProp.d.ts"
+    },
+    "object/hasNotProps": {
+      "import": "./dist/esm/object/hasNotProps.js",
+      "require": "./dist/cjs/object/hasNotProps.js",
+      "types": "./dist/esm/object/hasNotProps.d.ts"
+    },
+    "object/hasNotProp": {
+      "import": "./dist/esm/object/hasNotProp.js",
+      "require": "./dist/cjs/object/hasNotProp.js",
+      "types": "./dist/esm/object/hasNotProp.d.ts"
+    },
+    "object/hasProps": {
+      "import": "./dist/esm/object/hasProps.js",
+      "require": "./dist/cjs/object/hasProps.js",
+      "types": "./dist/esm/object/hasProps.d.ts"
+    },
+    "object/hasNotSameProps": {
+      "import": "./dist/esm/object/hasNotSameProps.js",
+      "require": "./dist/cjs/object/hasNotSameProps.js",
+      "types": "./dist/esm/object/hasNotSameProps.d.ts"
+    },
+    "object/hasSameProps": {
+      "import": "./dist/esm/object/hasSameProps.js",
+      "require": "./dist/cjs/object/hasSameProps.js",
+      "types": "./dist/esm/object/hasSameProps.d.ts"
+    },
+    "object/hasSameProp": {
+      "import": "./dist/esm/object/hasSameProp.js",
+      "require": "./dist/cjs/object/hasSameProp.js",
+      "types": "./dist/esm/object/hasSameProp.d.ts"
+    },
+    "object/hasProp": {
+      "import": "./dist/esm/object/hasProp.js",
+      "require": "./dist/cjs/object/hasProp.js",
+      "types": "./dist/esm/object/hasProp.d.ts"
+    },
+    "boolean/isTruthy": {
+      "import": "./dist/esm/boolean/isTruthy.js",
+      "require": "./dist/cjs/boolean/isTruthy.js",
+      "types": "./dist/esm/boolean/isTruthy.d.ts"
+    },
+    "boolean/isFalse": {
+      "import": "./dist/esm/boolean/isFalse.js",
+      "require": "./dist/cjs/boolean/isFalse.js",
+      "types": "./dist/esm/boolean/isFalse.d.ts"
+    },
+    "boolean/isTrue": {
+      "import": "./dist/esm/boolean/isTrue.js",
+      "require": "./dist/cjs/boolean/isTrue.js",
+      "types": "./dist/esm/boolean/isTrue.d.ts"
+    },
+    "boolean/isFalsey": {
+      "import": "./dist/esm/boolean/isFalsey.js",
+      "require": "./dist/cjs/boolean/isFalsey.js",
+      "types": "./dist/esm/boolean/isFalsey.d.ts"
+    },
+    "string/isEmail": {
+      "import": "./dist/esm/string/isEmail.js",
+      "require": "./dist/cjs/string/isEmail.js",
+      "types": "./dist/esm/string/isEmail.d.ts"
+    },
+    "string/doesNotMatch": {
+      "import": "./dist/esm/string/doesNotMatch.js",
+      "require": "./dist/cjs/string/doesNotMatch.js",
+      "types": "./dist/esm/string/doesNotMatch.d.ts"
+    },
+    "string/isTrimmable": {
+      "import": "./dist/esm/string/isTrimmable.js",
+      "require": "./dist/cjs/string/isTrimmable.js",
+      "types": "./dist/esm/string/isTrimmable.d.ts"
+    },
+    "string/isEmptyString": {
+      "import": "./dist/esm/string/isEmptyString.js",
+      "require": "./dist/cjs/string/isEmptyString.js",
+      "types": "./dist/esm/string/isEmptyString.d.ts"
+    },
+    "string/endsWith": {
+      "import": "./dist/esm/string/endsWith.js",
+      "require": "./dist/cjs/string/endsWith.js",
+      "types": "./dist/esm/string/endsWith.d.ts"
+    },
+    "string/includes": {
+      "import": "./dist/esm/string/includes.js",
+      "require": "./dist/cjs/string/includes.js",
+      "types": "./dist/esm/string/includes.d.ts"
+    },
+    "string/isLowerCase": {
+      "import": "./dist/esm/string/isLowerCase.js",
+      "require": "./dist/cjs/string/isLowerCase.js",
+      "types": "./dist/esm/string/isLowerCase.d.ts"
+    },
+    "string/isEmptyStringTrim": {
+      "import": "./dist/esm/string/isEmptyStringTrim.js",
+      "require": "./dist/cjs/string/isEmptyStringTrim.js",
+      "types": "./dist/esm/string/isEmptyStringTrim.d.ts"
+    },
+    "string/stringMethodProxy": {
+      "import": "./dist/esm/string/stringMethodProxy.js",
+      "require": "./dist/cjs/string/stringMethodProxy.js",
+      "types": "./dist/esm/string/stringMethodProxy.d.ts"
+    },
+    "string/isTrimmableEnd": {
+      "import": "./dist/esm/string/isTrimmableEnd.js",
+      "require": "./dist/cjs/string/isTrimmableEnd.js",
+      "types": "./dist/esm/string/isTrimmableEnd.d.ts"
+    },
+    "string/isTrimmableStart": {
+      "import": "./dist/esm/string/isTrimmableStart.js",
+      "require": "./dist/cjs/string/isTrimmableStart.js",
+      "types": "./dist/esm/string/isTrimmableStart.d.ts"
+    },
+    "string/isPalindrome": {
+      "import": "./dist/esm/string/isPalindrome.js",
+      "require": "./dist/cjs/string/isPalindrome.js",
+      "types": "./dist/esm/string/isPalindrome.d.ts"
+    },
+    "string/startsWith": {
+      "import": "./dist/esm/string/startsWith.js",
+      "require": "./dist/cjs/string/startsWith.js",
+      "types": "./dist/esm/string/startsWith.d.ts"
+    },
+    "string/isUniformCase": {
+      "import": "./dist/esm/string/isUniformCase.js",
+      "require": "./dist/cjs/string/isUniformCase.js",
+      "types": "./dist/esm/string/isUniformCase.d.ts"
+    },
+    "string/isMixedCase": {
+      "import": "./dist/esm/string/isMixedCase.js",
+      "require": "./dist/cjs/string/isMixedCase.js",
+      "types": "./dist/esm/string/isMixedCase.d.ts"
+    },
+    "string/matches": {
+      "import": "./dist/esm/string/matches.js",
+      "require": "./dist/cjs/string/matches.js",
+      "types": "./dist/esm/string/matches.d.ts"
+    },
+    "string/isUpperCase": {
+      "import": "./dist/esm/string/isUpperCase.js",
+      "require": "./dist/cjs/string/isUpperCase.js",
+      "types": "./dist/esm/string/isUpperCase.d.ts"
     }
   },
   "dependencies": {
@@ -69,8 +664,6 @@
     "@eslint/js": "9.24.0",
     "@types/jest": "29.5.14",
     "@types/bun": "1.2.9",
-    "acorn": "8.14.1",
-    "acorn-walk": "8.3.4",
     "bun": "1.2.8",
     "eslint": "9.24.0",
     "eslint-config-prettier": "10.1.1",
@@ -83,13 +676,11 @@
     "typescript-eslint": "8.29.0"
   },
   "scripts": {
-    "build:esm": "bun build index.ts --outdir=dist-bun/esm --format=esm --target=node",
-    "build:cjs": "bun build index.ts --outdir=dist-bun/cjs --format=cjs --target=node",
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "npm run clean && npm run build:ts:cjs && npm run build:ts:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
     "clean": "rm -rf dist",
-    "build:ts:cjs": "tsc -p tsconfig.cjs.json",
-    "build:ts:esm": "tsc -p tsconfig.esm.json",
-    "build:ts": "npm run clean && npm run build:ts:cjs && npm run build:ts:esm",
+    "generate-ecxports": "bun run scripts/generate-exports.ts",
     "lint": "eslint .",
     "pack": "npm run --cwd ./dist pack",
     "prettier": "prettier '**/*.ts'",
