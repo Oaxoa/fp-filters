@@ -676,7 +676,7 @@
     "typescript-eslint": "8.29.0"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:ts:cjs && npm run build:ts:esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "clean": "rm -rf dist",
