@@ -49,12 +49,12 @@ array.filter(isTrue);
 
 ```js
 // JS
-array.filter((date) => {
+dates.filter((date) => {
   const day = date.getDay();
   return day === 0 || day === 6;
 });
 // fp-filters
-array.filter(isWeekend);
+dates.filter(isWeekend);
 ```
 
 #### Length
