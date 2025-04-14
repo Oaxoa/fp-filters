@@ -1,11 +1,14 @@
 import { none } from '../misc/none.js';
 
+type TReturnType = (item: unknown, index: number) => boolean;
+
 /**
- * Allows to specify a pattern that is repeated. The elements are returned based on their index matching the pattern
+ * Higher-order function. Allows to specify a pattern that is repeated. Returns a function where the elements are returned based on their index matching the pattern.
+ * The pattern can be an array or a comma-separated list of booleans.
  */
-export function pattern(mask: boolean[]): (item: unknown, index: number) => boolean;
-export function pattern(...args: boolean[]): (item: unknown, index: number) => boolean;
-export function pattern(...args: (boolean | boolean[])[]): (item: unknown, index: number) => boolean {
+export function pattern(mask: boolean[]): TReturnType;
+export function pattern(...args: boolean[]): TReturnType;
+export function pattern(...args: (boolean | boolean[])[]): TReturnType {
 	const firstItem = args?.[0];
 	const patternMask: boolean[] = Array.isArray(firstItem) ? (firstItem as boolean[]) : (args as boolean[]);
 

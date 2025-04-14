@@ -1,7 +1,7 @@
-import { hasProp } from './hasProp.js';
+import {hasProp} from './hasProp.js';
 
 /**
- * arg has all the specified props
+ * Uses {@link hasProp} to check if the object has all the properties
  */
 export const hasProps = (propertyNames: string[], values?: unknown[]) => (arg: object) =>
 	Boolean(propertyNames?.every((propertyName, index) => hasProp(propertyName, values?.[index])(arg)));

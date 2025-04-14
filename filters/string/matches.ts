@@ -1,5 +1,6 @@
 /**
- * Returns true if the string matches the specified regexp
+ * Returns true if the string matches the specified regexp.
+ * @remarks Returning a boolean cannot be used to extract the match.
  */
 export const matches =
 	(re: RegExp) =>

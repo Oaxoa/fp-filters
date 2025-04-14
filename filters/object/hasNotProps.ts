@@ -1,7 +1,7 @@
-import { not } from 'fp-booleans';
-import { hasProps } from './hasProps.js';
+import {not} from 'fp-booleans';
+import {hasProps} from './hasProps.js';
 
 /**
- * arg does not have all the specified props
+ * Negative of {@link hasProps}
  */
 export const hasNotProps = not(hasProps);

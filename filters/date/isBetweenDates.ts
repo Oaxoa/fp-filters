@@ -1,4 +1,9 @@
-import { isBetween } from '../number/isBetween.js';
+import {isFutureOrSameDate} from './isFutureOrSameDate';
+import {and} from 'fp-booleans';
+import {isPastOrSameDate} from './isPastOrSameDate';
 
-export const isBetweenDates = (dateBegin: Date, dateEnd: Date) => (arg: Date) =>
-	isBetween(dateBegin.getTime(), dateEnd.getTime())(arg.getTime());
+/**
+ * Higher-order function. Returns a function that returns true if the argument is between the two dates (inclusive).
+ */
+export const isBetweenDates = (dateBegin: Date, dateEnd: Date) =>
+	and(isFutureOrSameDate(dateBegin), isPastOrSameDate(dateEnd));

@@ -1,8 +1,8 @@
-import { assignName } from '../../utils.js';
-import { hasLength } from './hasLength.js';
+import {assignName} from '../../utils.js';
+import {hasLength} from './hasLength.js';
 
 /**
- * Argument is empty
+ * Returns true if the argument is an empty string, array, or object. (length === 0)
  */
 export const isEmpty = hasLength(0);
 assignName(isEmpty, 'isEmpty');

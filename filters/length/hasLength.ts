@@ -1,6 +1,9 @@
-import { THasLengthProperty } from './types.js';
+import {THasLengthProperty} from './types.js';
 
 /**
- * Argument has a specific length of len
+ * Higher-order function that returns a function to check if an argument has a specific length.
+ *
+ * @param len - The length to compare against.
+ * @returns A function that takes an argument and returns true if the argument's length is equal to the specified length.
  */
 export const hasLength = (len: number) => (arg: THasLengthProperty) => Boolean(arg?.length === len);

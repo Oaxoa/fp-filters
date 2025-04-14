@@ -1,7 +1,7 @@
-import { pattern } from './pattern.js';
+import {pattern} from './pattern.js';
 
 /**
- * Returns an element every N (offset optional)
+ * Returns an element every N (with optional offset)
  */
 export const isEveryNthIndex = (n: number, start: number = 0) => {
 	const p = Array(n).fill(false);

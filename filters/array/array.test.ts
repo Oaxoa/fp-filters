@@ -1,9 +1,9 @@
 import { isIncludedIn } from './isIncludedIn.js';
-import { filterElements } from './filterElements.js';
+import { everyElement } from './everyElement.js';
 import { isEven } from '../number/isEven.js';
 
 describe('array', () => {
-	describe('filterElements', () => {
+	describe('everyElement', () => {
 		it.each([
 			{
 				input: [
@@ -17,9 +17,12 @@ describe('array', () => {
 					[0, 2, 4, 6],
 				],
 			},
-		])('returns true if an element is contained in the comparison array', ({ input, expected }) => {
-			expect(input.filter(filterElements(isEven))).toEqual(expected);
-		});
+		])(
+			'returns true if an element is an array and all its children pass the test provided by the function',
+			({ input, expected }) => {
+				expect(input.filter(everyElement(isEven))).toEqual(expected);
+			}
+		);
 	});
 
 	describe('isIncludedIn', () => {
