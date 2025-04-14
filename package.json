@@ -1,6 +1,6 @@
 {
   "name": "fp-filters",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "type": "module",
   "description": "Curated collection of commonly used filter functions that are tiny, tested and composable",
   "author": "Pierluigi Pesenti",
