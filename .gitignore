@@ -1,6 +1,7 @@
 /node_modules
 /coverage
 /dist
+/docs
 /.idea
 /.DS_Store
 /.yarn

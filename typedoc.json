@@ -1,0 +1,27 @@
+{
+	"entryPoints": [
+		"filters"
+	],
+	"exclude": "**/*+(test).ts",
+	"entryPointStrategy": "expand",
+	"out": "docs",
+	"name": "fp-filters",
+	"includeVersion": true,
+	"excludePrivate": true,
+	"excludeInternal": true,
+	"categorizeByGroup": true,
+	"categoryOrder": [
+		"Array",
+		"Boolean",
+		"Date",
+		"Length",
+		"Misc",
+		"Number",
+		"Object",
+		"Position",
+		"String",
+		"Type",
+		"*"
+	],
+	"readme": "README.md"
+}
