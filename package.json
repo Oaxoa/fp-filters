@@ -6,6 +6,7 @@
 	"author": "Pierluigi Pesenti",
 	"license": "MIT",
 	"repository": "https://github.com/Oaxoa/fp-filters",
+	"homepage": "https://oaxoa.github.com/fp-filters",
 	"files": [
 		"dist/",
 		"assets/"
