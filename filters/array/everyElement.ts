@@ -7,6 +7,6 @@
  * // returns [[2,4], [4,8]]
  */
 export const everyElement =
-	(condition: (item: any) => boolean) =>
-	(array: any[]): boolean =>
+	<T>(condition: (item: T) => boolean) =>
+	(array: T[]): boolean =>
 		array.every(condition);

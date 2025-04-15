@@ -3,7 +3,7 @@ import { checkTypeOf } from './checkTypeOf.js';
 import { isInstanceOf } from './isInstanceOf.js';
 import { is } from '../misc/is.js';
 
-export const typeChecks: Record<keyof TTypeMap, (arg: unknown) => boolean> = {
+export const typeChecks: Record<keyof TTypeMap, <T>(arg: T) => boolean> = {
 	string: checkTypeOf('string'),
 	number: checkTypeOf('number'),
 	boolean: checkTypeOf('boolean'),

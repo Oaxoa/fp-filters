@@ -1,1 +1,1 @@
-export type THasLengthProperty = unknown[] | string;
+export type THasLengthProperty<T = unknown> = T[] | string;
