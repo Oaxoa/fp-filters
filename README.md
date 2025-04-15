@@ -5,38 +5,32 @@ https://github.com/Oaxoa/fp-filters
 
 # fp-filters
 
-A curated collection of common-use filter functions that are written (and can be used) in a functional programming
+A curated collection of 130+ common-use filter functions that are written (and can be used) in a functional programming
 style.
 
-fp-filters functions are:
+## 🧠 How is this helpful?
 
-1. pure
-1. tiny
-1. composable
-1. zero-dependencies
-1. grouped by semantics
-1. tree-shakeable
-1. 100% tested by design
-1. higher-order / partially applicable
-1. fully typed
-
-### Why
-
-See how _fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability.
+_fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability.
 So that you will probably never write another filter function 🚀!
 
-## Examples
+_And if you do, you can make it generic enough and submit a PR here 😉_
 
-#### Array
+## 🔎 Examples
+
+A few random examples of the 130+ functions available in _fp-filters_. Grouped by semantic.
+See full docs here: [https://oaxoa.github.io/fp-filters/](https://oaxoa.github.io/fp-filters/)
+
+### Arrays
 
 ```js
+const input = [[1, 2, 3], [2, 4], [0, 4, 8, 16]];
 // JS
-const allergenIngredients = ingredients.filter((arg) => allergens.includes(arg));
+input.filter((array) => array.every((element) => element % 2 === 0));
 // fp-filters
-const allergenIngredients = ingredients.filter(isIncludedIn(allergens));
+input.filter(everyElement(isEven))
 ```
 
-#### Boolean
+### Booleans
 
 ```js
 // JS
@@ -45,7 +39,7 @@ array.filter((arg) => arg === true);
 array.filter(isTrue);
 ```
 
-#### Date
+### Dates
 
 ```js
 // JS
@@ -57,7 +51,7 @@ dates.filter((date) => {
 dates.filter(isWeekend);
 ```
 
-#### Length
+### Lengths
 
 ```js
 // JS
@@ -66,7 +60,7 @@ array.filter((arg) => arg.length > 0);
 array.filter(isNotEmpty);
 ```
 
-#### Misc
+### Misc
 
 ```js
 // JS
@@ -75,7 +69,7 @@ ids.filter((id) => id === currentUserId);
 ids.filter(is(currentUserId));
 ```
 
-#### Number
+### Numbers
 
 ```js
 // JS
@@ -98,7 +92,7 @@ array.filter((arg) => arg >= 10 && arg <= 50);
 array.filter(isBetween(10, 50));
 ```
 
-#### Object
+### Objects
 
 ```js
 // JS
@@ -121,7 +115,7 @@ array.filter((obj) => obj.id === someOtherObj.id && obj.brand === someOtherObj.b
 array.filter(hasSameProps(someOtherObj, ['id', 'brand']));
 ```
 
-#### Position
+### Positions
 
 ```js
 // JS
@@ -137,7 +131,7 @@ array.filter((arg, index) => index % 3 === 1);
 array.filter(isEveryNthIndex(3, 1));
 ```
 
-#### String
+### Strings
 
 ```js
 // JS
@@ -160,7 +154,7 @@ array.filter((arg: string) => {
 array.filter(isPalindrome);
 ```
 
-#### Type
+### Types
 
 ```js
 // JS
@@ -178,7 +172,7 @@ array.filter(isBoolean);
 // it casts the content and then evaluate its truthyness
 ```
 
-## Negate or combine filters
+## ❗ Negate or 🧩 combine filters
 
 Most of the functions include aliases for their negated versions (
 using [fp-booleans](https://npmjs.org/package/fp-booleans)):
@@ -202,7 +196,7 @@ but **you can make your own**.
 
 > _fp-filters_ leaverages _fp-booleans_'s very powerful functions to combine or negate functions
 
-#### Some examples:
+some examples:
 
 ```js
 const isNot = not(is);
@@ -215,9 +209,62 @@ const isValidAdmin = or(is('admin'), and(startsWith('user_'), isLowerCase))
 array.filter(isValidAdmin);
 ```
 
-### Getting started
+## 🧑🏼‍💻 Coding style
 
-#### Installation
+fp-filters functions are predicates. Just like array filters are.
+They get arguments and return a boolean.
+They can be used as such. But they shine when used as filters.
+
+fp-filters functions are:
+
+### ✨ Pure
+
+All are pure. Some are higher-order and unlocks the power of partial application in filters.
+
+### 🤏🏼 Tiny
+
+Most are one-liners. The longest is ~10 lines.
+
+### 🧱 Composable
+
+Higher-order predicates and fp-booleans unleash quite some power
+
+### 🪆 Zero-ish dependencies
+
+Most of them have zero deps. Some of them have 1 dependency on fp-booleans (that has zero deps).
+No surprises.
+
+### 🍃 More than tree-shakeable.
+
+No barrel files, or entry points.
+
+You import and bundle only what you use. No way to mess it up.
+
+If you use one function only, that's what goes in your bundle. The cost of it is in bytes.
+
+> Just as it would cost to write the function yourself. But with free 100% coverage testing, types, docs and no risk of
+> duplicated code.
+
+### 🗂️ Grouped semantically
+
+Function for numbers, function for strings, you get the point.
+So you will always intuitively know where to find the one you need.
+
+### ✅ 100% tested by design
+
+Yes, all of them are tested. Every branch, every line.
+130+ stable unit tests running in less than 1s.
+
+> Functions that are partial applications of other 100% tested functions (from fp-filters or fp-booleans) are
+> not tested. On purpose.
+
+### ✏️ Typescript typed
+
+All functions are fully typed. No `any` type, some `unknown`. Working on it. Help is appreciated ❤️.
+
+## 🚀 Getting started
+
+### 💻 Installation
 
 fp-filters runs on Node.js and is available as a NPM package.
 
@@ -231,7 +278,13 @@ or
 yarn add fp-filters
 ```
 
-## Contributions
+## 🤝 Contributions
+
+1. [Coding style](#%F0%9F%A7%91%F0%9F%8F%BC%F0%9F%92%BB-coding-style)
+1. [Contributing guide](CONTRIBUTING.md)
+1. [Code of Conduct](CODE_OF_CONDUCT.md)
+
+## 📜 License & Copyrights
 
 [MIT](https://opensource.org/licenses/MIT)
 
