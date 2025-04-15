@@ -688,7 +688,8 @@
 		"prettier": "prettier '**/*.ts'",
 		"prettier:fix": "prettier --write '**/*.ts'",
 		"test": "jest --coverage",
-		"test:watch": "jest --watchAll"
+		"test:watch": "jest --watchAll",
+		"typecheck": "tsc --noEmit"
 	},
 	"keywords": [
 		"filter",
