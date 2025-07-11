@@ -1,19 +1,20 @@
-<p><img src="./assets/logo.png" alt="" width="200" /></p>
-<p><img src="https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg" alt="" /></p>
-
-https://github.com/Oaxoa/fp-filters
+<img src="assets-sources/logo-v2.png" alt="" height="320" />
 
 # fp-filters
+
+<img src="https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg" alt="" />
 
 A curated collection of 130+ common-use filter functions that are written (and can be used) in a functional programming
 style.
 
-## 🧠 How is this helpful?
+- GitHub: https://github.com/Oaxoa/fp-filters
+- NPM: https://www.npmjs.com/package/fp-filters
+- Docs: https://oaxoa.github.io/fp-filters/
+
+<h2>🧠 How is this helpful?</h2>
 
 _fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability.
 So that you will probably never write another filter function 🚀!
-
-_And if you do, you can make it generic enough and submit a PR here 😉_
 
 ## 🔎 Examples
 
