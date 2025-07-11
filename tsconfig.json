@@ -11,7 +11,8 @@
 		"skipLibCheck": true,
 		"types": [
 			"bun-types",
-			"node"
+			"node",
+			"jest"
 		]
 	},
 	"include": [
