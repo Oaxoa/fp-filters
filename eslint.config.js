@@ -1,19 +1,19 @@
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import PluginImport from 'eslint-plugin-import';
 import treeShaking from 'eslint-plugin-tree-shaking';
+import tseslint from 'typescript-eslint';
 
 export default [
 	{
-		ignores: ['coverage/', 'dist/', 'assets/', '.github/', 'node_modules/'],
+		ignores: ['coverage/', 'dist/', 'assets/', '.github/', 'node_modules/', 'docs/'],
 	},
 	js.configs.recommended,
 	...tseslint.configs.recommended,
 	eslintConfigPrettier,
 	{
 		plugins: {
-			import: PluginImport,        // map the name "import" to the imported module
+			import: PluginImport, // map the name "import" to the imported module
 			'tree-shaking': treeShaking,
 		},
 		rules: {
