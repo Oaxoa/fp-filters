@@ -1,4 +1,4 @@
-import {is} from '../misc/is.js';
+import { is } from '../misc/is.js';
 
 /**
  * Returns true if the argument is an empty string ('')

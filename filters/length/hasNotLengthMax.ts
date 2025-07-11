@@ -1,5 +1,5 @@
-import {not} from 'fp-booleans';
-import {hasLengthMax} from './hasLengthMax.js';
+import { not } from 'fp-booleans';
+import { hasLengthMax } from './hasLengthMax.js';
 
 /**
  * Higher-order function that returns a function to check if an argument has a length property with a value that is not lesser than or equal to a specified length.

@@ -1,4 +1,4 @@
-import {hasSameProp} from './hasSameProp.js';
+import { hasSameProp } from './hasSameProp.js';
 
 /**
  * Uses {@link hasSameProp} to check if the object has all the properties

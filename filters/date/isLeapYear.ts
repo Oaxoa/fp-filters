@@ -1,5 +1,5 @@
-import {and, not, or} from 'fp-booleans';
-import {isMultipleOf} from '../number/isMultipleOf.js';
+import { and, not, or } from 'fp-booleans';
+import { isMultipleOf } from '../number/isMultipleOf.js';
 
 /**
  * Returns true if the argument is a date that is in a leap year.

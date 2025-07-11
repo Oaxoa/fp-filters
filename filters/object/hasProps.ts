@@ -1,4 +1,4 @@
-import {hasProp} from './hasProp.js';
+import { hasProp } from './hasProp.js';
 
 /**
  * Uses {@link hasProp} to check if the object has all the properties

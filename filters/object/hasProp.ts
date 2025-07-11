@@ -1,4 +1,4 @@
-import {TPredicate} from 'fp-booleans';
+import { TPredicate } from 'fp-booleans';
 
 /**
  * Higher-order function. Returns a function that checks if the argument has the specified prop.

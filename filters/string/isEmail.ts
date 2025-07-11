@@ -1,4 +1,4 @@
-import {matches} from './matches.js';
+import { matches } from './matches.js';
 
 /**
  * Returns true is the string is a valid email address according to the W3C implementation:

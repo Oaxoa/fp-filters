@@ -1,5 +1,5 @@
-import {not} from 'fp-booleans';
-import {hasLengthMin} from './hasLengthMin.js';
+import { not } from 'fp-booleans';
+import { hasLengthMin } from './hasLengthMin.js';
 
 /**
  * Higher-order function that returns a function to check if an argument has a length property with a value not greater than or equal to a specified length.

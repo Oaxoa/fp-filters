@@ -1,5 +1,5 @@
-import {not} from 'fp-booleans';
-import {hasSameProps} from './hasSameProps.js';
+import { not } from 'fp-booleans';
+import { hasSameProps } from './hasSameProps.js';
 
 /**
  * Negative of {@link hasSameProps}

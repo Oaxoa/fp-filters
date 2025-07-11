@@ -1,4 +1,4 @@
-import {isUndefined} from '../type/isUndefined.js';
+import { isUndefined } from '../type/isUndefined.js';
 
 /**
  * Higher-order function. Returns a function that checks if the argument has the same specified prop (name and value) as a comparison object.

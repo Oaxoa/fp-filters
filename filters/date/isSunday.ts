@@ -1,4 +1,4 @@
-import {isDayOfTheWeek} from './isDayOfTheWeek.js';
+import { isDayOfTheWeek } from './isDayOfTheWeek.js';
 
 /**
  * Returns true if the argument is a date that falls on a Sunday.

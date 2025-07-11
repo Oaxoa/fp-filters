@@ -1,5 +1,5 @@
-import {assignName} from '../../utils.js';
-import {hasLength} from './hasLength.js';
+import { assignName } from '../../utils.js';
+import { hasLength } from './hasLength.js';
 
 /**
  * Returns true if the argument is an empty string, array, or object. (length === 0)

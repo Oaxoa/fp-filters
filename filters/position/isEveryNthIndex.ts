@@ -1,4 +1,4 @@
-import {pattern} from './pattern.js';
+import { pattern } from './pattern.js';
 
 /**
  * Returns an element every N (with optional offset)

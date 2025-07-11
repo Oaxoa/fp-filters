@@ -1,6 +1,6 @@
-import {and} from 'fp-booleans';
-import {hasLengthMin} from './hasLengthMin.js';
-import {hasLengthMax} from './hasLengthMax.js';
+import { and } from 'fp-booleans';
+import { hasLengthMin } from './hasLengthMin.js';
+import { hasLengthMax } from './hasLengthMax.js';
 
 /**
  * Higher-order function that returns a function to check if an argument has a length property with a value between min and max (inclusive).

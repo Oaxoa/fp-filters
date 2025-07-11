@@ -1,6 +1,6 @@
-import {and} from 'fp-booleans';
-import {isPastOrSameDate} from './isPastOrSameDate.js';
-import {isSameYear} from './isSameYear.js';
+import { and } from 'fp-booleans';
+import { isPastOrSameDate } from './isPastOrSameDate.js';
+import { isSameYear } from './isSameYear.js';
 
 /**
  * Higher-order function. Returns a function that returns true if the argument is a date that is in the same year and is in the past or the same date.

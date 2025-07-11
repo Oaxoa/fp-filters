@@ -1,5 +1,5 @@
-import {not} from 'fp-booleans';
-import {hasLength} from './hasLength.js';
+import { not } from 'fp-booleans';
+import { hasLength } from './hasLength.js';
 
 /**
  * Higher-order function that returns a function to check if an argument has a specific length.

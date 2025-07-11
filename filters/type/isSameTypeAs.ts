@@ -1,5 +1,5 @@
-import {TTypeMap} from './types.js';
-import {isOfType} from './isOfType.js';
+import { TTypeMap } from './types.js';
+import { isOfType } from './isOfType.js';
 
 /**
  * Returns true if the argument is of the same type as the comparison.

@@ -1,4 +1,4 @@
-import {THasLengthProperty} from './types.js';
+import { THasLengthProperty } from './types.js';
 
 /**
  * Higher-order function that returns a function to check if an argument has a length property with a value lesser than or equal to a specified length.
