@@ -1,4 +1,4 @@
-<img src="assets-sources/logo-v2.png" alt="" height="320" />
+<img src="assets/logo.png" alt="" height="320" />
 
 # fp-filters
 
