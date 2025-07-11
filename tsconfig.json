@@ -1,24 +1,29 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "esModuleInterop": true,
-    "declaration": true,
-    "outDir": "./dist/esm",
-    "moduleResolution": "Node",
-    "strict": false,
-    "noImplicitAny": true
-  },
-  "include": [
-    "./filters",
-    "./index.ts",
-    "./utils.ts",
-    "./utils.test.ts",
-    "./jest.config.js",
-    "./prettier.config.js",
-    "./eslint.config.js"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"esModuleInterop": true,
+		"declaration": true,
+		"outDir": "./dist/esm",
+		"moduleResolution": "Node",
+		"strict": false,
+		"noImplicitAny": true,
+		"skipLibCheck": true,
+		"types": [
+			"bun-types",
+			"node"
+		]
+	},
+	"include": [
+		"./filters",
+		"./index.ts",
+		"./utils.ts",
+		"./utils.test.ts",
+		"./jest.config.js",
+		"./prettier.config.js",
+		"./eslint.config.js"
+	],
+	"exclude": [
+		"node_modules"
+	]
 }
