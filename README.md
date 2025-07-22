@@ -2,9 +2,7 @@
 
 # fp-filters
 
-[![Build Status](https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg)](https://github.com/oaxoa/fp-filters/actions/workflows/build.yml)
-
-[![codecov](https://codecov.io/gh/Oaxoa/fp-filters/branch/master/graph/badge.svg)](https://codecov.io/gh/Oaxoa/fp-filters)
+[![Build Status](https://github.com/oaxoa/fp-filters/actions/workflows/build.yml/badge.svg)](https://github.com/oaxoa/fp-filters/actions/workflows/build.yml) [![codecov](https://codecov.io/gh/Oaxoa/fp-filters/branch/master/graph/badge.svg)](https://codecov.io/gh/Oaxoa/fp-filters)
 
 A curated collection of 130+ common-use filter functions that are written (and can be used) in a functional programming
 style.
