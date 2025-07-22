@@ -16,133 +16,141 @@ style.
 _fp-filters_ allows you to stop rewriting the same code over and over again and greatly improves readability.
 So that you will probably never write another filter function 🚀!
 
+## Import
+
+All the functions are grouped by semantics and individually exported.
+E.g.:
+
+```js
+// ...
+import { isEven } from 'fp-filters/number/isEven.js';
+import { is } from 'fp-filters/misc/is.js';
+import { isTrue } from 'fp-filters/boolean/isTrue.js';
+import { isPastDate } from 'fp-filters/date/isPastDate.js';
+import { hasProps } from 'fp-filters/object/hasProps.js';
+// ...
+```
+
+Therefore, they must be individually imported.
+No barrel files or entry points guarantees that you will not import what you don't use.
+
 ## 🔎 Examples
 
 A few random examples of the 130+ functions available in _fp-filters_. Grouped by semantic.
 See full docs here: [https://oaxoa.github.io/fp-filters/](https://oaxoa.github.io/fp-filters/)
 
-### Arrays
-
-```js
-const input = [[1, 2, 3], [2, 4], [0, 4, 8, 16]];
-// JS
-input.filter((array) => array.every((element) => element % 2 === 0));
-// fp-filters
-input.filter(everyElement(isEven))
-```
-
 ### Booleans
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => arg === true);
-// fp-filters
+// with fp-filters
 array.filter(isTrue);
 ```
 
 ### Dates
 
 ```js
-// JS
+// without fp-filters
 dates.filter((date) => {
   const day = date.getDay();
   return day === 0 || day === 6;
 });
-// fp-filters
+// with fp-filters
 dates.filter(isWeekend);
 ```
 
 ### Lengths
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => arg.length > 0);
-// fp-filters
+// with fp-filters
 array.filter(isNotEmpty);
 ```
 
 ### Misc
 
 ```js
-// JS
+// without fp-filters
 ids.filter((id) => id === currentUserId);
-// fp-filters
+// with fp-filters
 ids.filter(is(currentUserId));
 ```
 
 ### Numbers
 
 ```js
-// JS
+// without fp-filters
 scores.filter((value) => value !== 0);
-// fp-filters
+// with fp-filters
 scores.filter(isNotZero);
 ```
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => arg % 2 === 0);
-// fp-filters
+// with fp-filters
 array.filter(isEven);
 ```
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => arg >= 10 && arg <= 50);
-// fp-filters
+// with fp-filters
 array.filter(isBetween(10, 50));
 ```
 
 ### Objects
 
 ```js
-// JS
+// without fp-filters
 products.filter((obj) => obj.id !== undefined && obj.plu !== undefined);
-// fp-filters
+// with fp-filters
 products.filter(hasProps(['id', 'plu']));
 ```
 
 ```js
-// JS
+// without fp-filters
 products.find((obj) => obj.country === countryId && obj.plu === plu);
-// fp-filters
+// with fp-filters
 products.find(hasProps(['country', 'plu'], [countryId, plu]));
 ```
 
 ```js
-// JS
+// without fp-filters
 array.filter((obj) => obj.id === someOtherObj.id && obj.brand === someOtherObj.brand);
-// fp-filters
+// with fp-filters
 array.filter(hasSameProps(someOtherObj, ['id', 'brand']));
 ```
 
 ### Positions
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg, index) => index % 3 === 1 || index % 3 === 2);
-// fp-filters
+// with fp-filters
 array.filter(pattern(false, true, true));
 ```
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg, index) => index % 3 === 1);
-// fp-filters
+// with fp-filters
 array.filter(isEveryNthIndex(3, 1));
 ```
 
 ### Strings
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => arg === '');
-// fp-filters
+// with fp-filters
 array.filter(isEmptyString);
 ```
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg: string) => {
   for (let i = 0; i < arg.length / 2; i++) {
     if (arg[i] !== arg[arg.length - i - 1]) {
@@ -151,26 +159,36 @@ array.filter((arg: string) => {
   }
   return true;
 });
-// fp-filters
+// with fp-filters
 array.filter(isPalindrome);
 ```
 
 ### Types
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => arg !== undefined);
-// fp-filters
+// with fp-filters
 array.filter(isNotUndefined);
 ```
 
 ```js
-// JS
+// without fp-filters
 array.filter((arg) => typeof arg === 'boolean');
-// fp-filters
+// with fp-filters
 array.filter(isBoolean);
 // do not be tricked by `array.filter(Boolean);`. It is different as 
 // it casts the content and then evaluate its truthyness
+```
+
+### Arrays
+
+```js
+const input = [[1, 2, 3], [2, 4], [0, 4, 8, 16]];
+// without fp-filters
+input.filter((array) => array.every((element) => element % 2 === 0));
+// with fp-filters
+input.filter(everyElement(isEven))
 ```
 
 ## ❗ Negate or 🧩 combine filters
@@ -200,6 +218,8 @@ but **you can make your own**.
 some examples:
 
 ```js
+import { not, and, or } from 'fp-booleans';
+
 const isNot = not(is);
 array.filter(isNot(5));
 
