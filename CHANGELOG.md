@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+Bump dev dependencies
+
 ## 0.5.4 - 2025-07-11
 
 ## 0.5.3 - 2025-04-16
@@ -16,11 +18,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 0.5.1 - 2025-04-15
 
 ## 0.5.0 - 2025-04-15
+
 Add TSDoc comments to all functions
 Generate docs/ with typedoc
 Publish docs to gh-pages
 
 ## 0.4.0 - 2025-04-13
+
 Breaking update to all filters import paths.
 This is due to a different grouping (no grouping now) to maximize tree-shakeability
 
@@ -31,7 +35,9 @@ This is due to a different grouping (no grouping now) to maximize tree-shakeabil
 ## 0.3.1 - 2024-11-10
 
 ## 0.3.0 - 2024-11-10
+
 Major breaking update to all filters
 
 ### Added
+
 - First automated version
